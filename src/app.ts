@@ -10,13 +10,13 @@ import errorMiddleware from './middleware/error.middleware';
 
 
 (async function main() {
+   // Start database
+   await Database.initialize();
+   
   const app: Application = express();
 
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
-
-  // Start database
-  await Database.initialize();
 
   // Initialize API Routes
   registerApiRoutes(app, '/api/v1');

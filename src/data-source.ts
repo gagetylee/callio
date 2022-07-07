@@ -9,7 +9,7 @@ export const Database = new DataSource({
   username: "postgres",
   password: "postgres",
   database: DB_NAME,
-  // synchronize: true,
+  synchronize: true,
   logging: ["query", "error"],
   entities: [User],
   subscribers: [],
