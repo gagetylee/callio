@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, Unique } from "typeorm"
+import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, Unique, CreateDateColumn, UpdateDateColumn } from "typeorm"
 import { IUser } from "./user.interface";
 
 @Entity()
@@ -14,4 +14,10 @@ export class User extends BaseEntity implements IUser {
 
   @Column({ type: 'text', unique: true })
   email: string;
+
+  @CreateDateColumn({ name: 'created_at' })
+  createdAt: Date;
+
+  @UpdateDateColumn({ name: 'updated_at' })
+  updatedAt: Date;
 }

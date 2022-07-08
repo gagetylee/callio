@@ -1,17 +1,17 @@
 import 'reflect-metadata';
-import express, { Application, urlencoded } from 'express';
+import express, { Application } from 'express';
 import 'tsconfig-paths';
 import { registerApiRoutes } from './components';
-import { DB_HOST, DB_NAME, NODE_ENV, PORT } from '@config';
-import { User } from 'components/user/user.entity'
+import { PORT } from '@config';
 import { Database } from './data-source';
-import { logger } from './config/logger';
 import errorMiddleware from './middleware/error.middleware';
+import swaggerUi from 'swagger-ui-express'
+import swaggerJsdoc from 'swagger-jsdoc'
 
 
 (async function main() {
-   // Start database
-   await Database.initialize();
+  // Start database
+  await Database.initialize();
    
   const app: Application = express();
 
@@ -24,6 +24,23 @@ import errorMiddleware from './middleware/error.middleware';
   // Setup error handler
   app.use(errorMiddleware)
 
+  // Setup swagger
+  const options = {
+    definition: {
+      openapi: '3.0.0',
+      info: {
+        title: 'Hello World',
+        version: '1.0.0',
+      },
+    },
+    apis: ['./src/components/**/*.routes.ts'], // files containing annotations as above
+  };
+
+  const swaggerDoc = swaggerJsdoc(options)
+  app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc));
+
+
+  // Listen
   app.listen(PORT, () => {
     console.log(`Server started on port ${PORT}`);
   });

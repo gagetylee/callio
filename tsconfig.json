@@ -12,7 +12,7 @@
     "target": "es2017",
     "sourceMap": true,
     "outDir": "dist",
-    "baseUrl": "src",
+    "baseUrl": "./src",
     "incremental": true,
     "skipLibCheck": true,
     "strictNullChecks": false,
@@ -27,5 +27,6 @@
       "@config": ["config"]
     }
   },
-  "include": ["src/**/*.ts", ".env"]
+  "include": ["src/**/*.ts", ".env"],
+  "exclude": ["node_modules"],
 }

@@ -9,6 +9,7 @@ import { logger } from '@/config/logger';
 export class UserController {
   constructor(readonly userService: UserService) {
     this.getAll = this.getAll.bind(this);
+    this.findOne = this.findOne.bind(this);
     this.create = this.create.bind(this);
   }
 
@@ -25,6 +26,16 @@ export class UserController {
       const users: User[] = await this.userService.getAll()
     
       return res.status(200).json(users)
+    } catch (err) {
+      next(err)
+    }
+  }
+
+  public async findOne(req: Request, res: Response, next: NextFunction): Promise<Response> {
+    try {
+      const user: User = await this.userService.findOne(parseInt(req.params.id))
+
+      return res.status(200).json(user)
     } catch (err) {
       next(err)
     }

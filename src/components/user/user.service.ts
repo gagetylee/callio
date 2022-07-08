@@ -1,16 +1,14 @@
 import { Service } from 'typedi';
 import { User } from './user.entity';
-import { HttpException } from '@/exceptions/HttpException';
+import { HttpException } from '../../exceptions/HttpException';
 import { Repository } from 'typeorm';
-import { Database } from '@/data-source';
+import { Database } from '../../data-source';
 import { CreateUserDto } from './dto/createUser.dto';
 import { IUser } from './user.interface';
 
 
 @Service()
 export class UserService {
-  private userRepository: Repository<User> = Database.getRepository(User)
-
   public async getAll(): Promise<User[]> {
     const users: User[] = await User.find()
 
@@ -19,6 +17,14 @@ export class UserService {
     }
 
     return users;
+  }
+
+  public async findOne(id: number): Promise<User> {
+    const user: User = await User.findOne({ where: { id } })
+
+    if (!user) throw new HttpException(404, 'User not found')
+
+    return user
   }
 
   public async create(credentials: CreateUserDto): Promise<User> {
