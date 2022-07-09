@@ -15,16 +15,16 @@ export class UserController {
 
   /**
    * GET /user
-   * 
-   * @param req 
-   * @param res 
-   * @param next 
-   * @returns 
+   *
+   * @param req
+   * @param res
+   * @param next
+   * @returns
    */
   public async getAll(req: Request, res: Response, next: NextFunction): Promise<Response> {
     try {
       const users: User[] = await this.userService.getAll()
-    
+
       return res.status(200).json(users)
     } catch (err) {
       next(err)
@@ -44,7 +44,7 @@ export class UserController {
   public async create(req: Request, res: Response, next: NextFunction) {
     try {
       const userData: CreateUserDto = req.body
-      
+
       const user = await this.userService.create(userData)
       return res.status(200).send(user)
     } catch (err) {

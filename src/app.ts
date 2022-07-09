@@ -2,18 +2,23 @@ import 'reflect-metadata';
 import express, { Application } from 'express';
 import 'tsconfig-paths';
 import { registerApiRoutes } from './components';
-import { PORT } from '@config';
-import { Database } from './data-source';
+import { PORT } from '@/config';
 import errorMiddleware from './middleware/error.middleware';
 import swaggerUi from 'swagger-ui-express'
 import swaggerJsdoc from 'swagger-jsdoc'
+import { MikroORM, RequestContext } from '@mikro-orm/core';
+import config, { DI } from './mikro-orm.config'
+import {User} from "@/components/user/user.entity";
 
 
 (async function main() {
-  // Start database
-  await Database.initialize();
-   
   const app: Application = express();
+
+  // Start database
+  DI.orm = await MikroORM.init(config)
+  DI.em = DI.orm.em.fork()
+  DI.userRepository = DI.orm.em.fork().getRepository(User);
+  app.use((_1, _2, next) => RequestContext.create(DI.orm.em, next));
 
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
@@ -38,7 +43,6 @@ import swaggerJsdoc from 'swagger-jsdoc'
 
   const swaggerDoc = swaggerJsdoc(options)
   app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc));
-
 
   // Listen
   app.listen(PORT, () => {
