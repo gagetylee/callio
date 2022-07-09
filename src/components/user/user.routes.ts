@@ -24,14 +24,14 @@ export class UserRoutes {
     */
     this.router.get('/', this.userController.getAll);
 
-    /**
-     * 
-     */
+    // /**
+    //  *
+    //  */
     this.router.get('/:id', this.userController.findOne);
 
-    /**
-     * 
-     */
+    // /**
+    //  *
+    //  */
     this.router.post('/', validationMiddleware(CreateUserDto, 'body'), this.userController.create);
   }
 }

@@ -1,23 +1,23 @@
-import { Entity, Column, PrimaryGeneratedColumn, BaseEntity, Unique, CreateDateColumn, UpdateDateColumn } from "typeorm"
+import { Entity, PrimaryKey, Property } from "@mikro-orm/core";
 import { IUser } from "./user.interface";
 
 @Entity()
-export class User extends BaseEntity implements IUser {
-  @PrimaryGeneratedColumn()
+export class User implements IUser {
+  @PrimaryKey()
   id!: number
 
-  @Column({ type: 'text', name: 'first_name' })
+  @Property({ type: 'text', name: 'first_name' })
   firstName!: string;
 
-  @Column({ type: 'text', name: 'last_name' })
+  @Property({ type: 'text', name: 'last_name' })
   lastName!: string;
 
-  @Column({ type: 'text', unique: true })
+  @Property({ type: 'text', unique: true })
   email: string;
 
-  @CreateDateColumn({ name: 'created_at' })
-  createdAt: Date;
+  @Property({ name: 'created_at', onCreate: () => new Date() })
+  createdAt: Date = new Date()
 
-  @UpdateDateColumn({ name: 'updated_at' })
-  updatedAt: Date;
+  @Property({ name: 'updated_at', onUpdate: () => new Date() })
+  updatedAt: Date = new Date()
 }
