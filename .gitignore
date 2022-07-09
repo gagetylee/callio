@@ -1,6 +1,7 @@
 /node_modules
 /logs
 /dist
+/.idea
 
 .env.development.local
 

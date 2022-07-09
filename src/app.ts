@@ -34,7 +34,7 @@ import {User} from "@/components/user/user.entity";
     definition: {
       openapi: '3.0.0',
       info: {
-        title: 'Hello World',
+        title: 'Callio',
         version: '1.0.0',
       },
     },

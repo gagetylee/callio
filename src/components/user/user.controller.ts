@@ -4,6 +4,7 @@ import express, { Response, Request, NextFunction } from 'express';
 import { User } from './user.entity';
 import { CreateUserDto } from './dto/createUser.dto';
 import { logger } from '@/config/logger';
+import { EditUserDto } from './dto/editUser.dto';
 
 @Service()
 export class UserController {
@@ -11,6 +12,7 @@ export class UserController {
     this.getAll = this.getAll.bind(this);
     this.findOne = this.findOne.bind(this);
     this.create = this.create.bind(this);
+    this.update = this.update.bind(this);
   }
 
   /**
@@ -26,8 +28,8 @@ export class UserController {
       const users: User[] = await this.userService.getAll()
 
       return res.status(200).json(users)
-    } catch (err) {
-      next(err)
+    } catch (error) {
+      next(error)
     }
   }
 
@@ -36,8 +38,8 @@ export class UserController {
       const user: User = await this.userService.findOne(parseInt(req.params.id))
 
       return res.status(200).json(user)
-    } catch (err) {
-      next(err)
+    } catch (error) {
+      next(error)
     }
   }
 
@@ -46,9 +48,28 @@ export class UserController {
       const userData: CreateUserDto = req.body
 
       const user = await this.userService.create(userData)
-      return res.status(200).send(user)
-    } catch (err) {
-      next(err)
+      return res.status(200).json(user)
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  public async update(req: Request, res: Response, next: NextFunction) {
+    try {
+      const userId: number = parseInt(req.params.id)
+      // const userData: User = await this.userService.findOne(userId)
+
+      const updateData: EditUserDto = {}
+
+      for (let key in req.body) {
+        updateData[key] = req.body[key]
+      }
+
+      const user = await this.userService.update(userId, updateData)
+
+      return res.status(200).json(user)
+    } catch (error) {
+      next(error)
     }
   }
 }

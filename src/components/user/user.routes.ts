@@ -3,6 +3,7 @@ import { Router } from 'express';
 import { Container } from 'typedi';
 import { CreateUserDto } from './dto/createUser.dto';
 import { UserController } from './user.controller';
+import { EditUserDto } from './dto/editUser.dto';
 
 export class UserRoutes {
   readonly userController: UserController = Container.get(UserController);
@@ -13,25 +14,11 @@ export class UserRoutes {
   }
 
   public initRoutes() {
-    /**
-    * @swagger
-    * /api/v1/user:
-    *   get:
-    *     description: Get all users
-    *     responses:
-    *       200:
-    *         description: Returns a mysterious string.
-    */
     this.router.get('/', this.userController.getAll);
-
-    // /**
-    //  *
-    //  */
     this.router.get('/:id', this.userController.findOne);
 
-    // /**
-    //  *
-    //  */
     this.router.post('/', validationMiddleware(CreateUserDto, 'body'), this.userController.create);
+
+    this.router.put('/:id', validationMiddleware(EditUserDto, 'body'), this.userController.update);
   }
 }
