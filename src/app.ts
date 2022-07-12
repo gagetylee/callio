@@ -9,13 +9,14 @@ import swaggerJsdoc from 'swagger-jsdoc'
 import { MikroORM, RequestContext } from '@mikro-orm/core';
 import config, { DI } from './mikro-orm.config'
 import {User} from "@/components/user/user.entity";
+import { PostgreSqlDriver } from '@mikro-orm/postgresql';
 
 
 (async function main() {
   const app: Application = express();
 
-  // Start database
-  DI.orm = await MikroORM.init(config)
+  // Connect to database
+  DI.orm = await MikroORM.init<PostgreSqlDriver>(config)
   DI.em = DI.orm.em.fork()
   DI.userRepository = DI.orm.em.fork().getRepository(User);
   app.use((_1, _2, next) => RequestContext.create(DI.orm.em, next));

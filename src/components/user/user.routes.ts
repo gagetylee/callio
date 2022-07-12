@@ -4,6 +4,7 @@ import { Container } from 'typedi';
 import { CreateUserDto } from './dto/createUser.dto';
 import { UserController } from './user.controller';
 import { EditUserDto } from './dto/editUser.dto';
+import { UserLoginDto } from './dto/user.dto.login';
 
 export class UserRoutes {
   readonly userController: UserController = Container.get(UserController);
@@ -15,9 +16,10 @@ export class UserRoutes {
 
   public initRoutes() {
     this.router.get('/', this.userController.getAll);
+    this.router.get('/login', validationMiddleware(UserLoginDto, 'body'), this.userController.login);
     this.router.get('/:id', this.userController.findOne);
 
-    this.router.post('/', validationMiddleware(CreateUserDto, 'body'), this.userController.create);
+    this.router.post('/', validationMiddleware(CreateUserDto, 'body'), this.userController.register);
 
     this.router.put('/:id', validationMiddleware(EditUserDto, 'body'), this.userController.update);
   }

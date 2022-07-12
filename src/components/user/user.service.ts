@@ -5,6 +5,8 @@ import { CreateUserDto } from './dto/createUser.dto';
 import { DI } from '@/mikro-orm.config';
 import {EntityRepository} from "@mikro-orm/core";
 import { EditUserDto } from './dto/editUser.dto';
+import bcrypt from 'bcrypt'
+import { UserLoginDto } from './dto/user.dto.login';
 
 @Service()
 export class UserService {
@@ -33,10 +35,25 @@ export class UserService {
     const emailExists = await this.userRepository.findOne({ email: credentials.email })
     if (emailExists) throw new HttpException(409, 'Email is already in use')
 
-    const createUserData: User = this.userRepository.create({ ...credentials })
+    // Hash password
+    const salt = await bcrypt.genSalt(10)
+    const hashedPassword = await bcrypt.hash(credentials.password, salt)
+
+    const createUserData: User = this.userRepository.create({ ...credentials, password: hashedPassword })
     await DI.em.persistAndFlush(createUserData);
 
     return createUserData
+  }
+
+  public async login(credentials: UserLoginDto): Promise<User> {
+    const user: User = await DI.userRepository.findOne({ email: credentials.email })
+    console.log(user)
+    if (!user || !(await bcrypt.compare(credentials.password, user.password))) {
+      throw new HttpException(401, 'Invalid credentials')
+    }
+
+    return user
+    return null
   }
 
   

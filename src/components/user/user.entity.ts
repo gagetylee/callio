@@ -2,7 +2,7 @@ import { Entity, PrimaryKey, Property } from "@mikro-orm/core";
 import { IUser } from "./user.interface";
 
 @Entity()
-export class User implements IUser {
+export class User {
   @PrimaryKey()
   id!: number
 
@@ -14,6 +14,9 @@ export class User implements IUser {
 
   @Property({ type: 'text', unique: true })
   email: string;
+
+  @Property({ type: 'text' })
+  password: string;
 
   @Property({ name: 'created_at', onCreate: () => new Date() })
   createdAt: Date = new Date()
