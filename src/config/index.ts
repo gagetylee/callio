@@ -11,5 +11,6 @@ export const {
   DB_PASSWORD,
   DB_NAME,
   LOG_DIR,
-  LOG_FORMAT
+  LOG_FORMAT,
+  JWT_SECRET
 } = process.env;

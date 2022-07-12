@@ -6,6 +6,9 @@ import { CreateUserDto } from './dto/createUser.dto';
 import { logger } from '@/config/logger';
 import { EditUserDto } from './dto/editUser.dto';
 import { UserLoginDto } from './dto/user.dto.login';
+import jsonwebtoken from 'jsonwebtoken';
+import { JWT_SECRET } from '@/config';
+import { DataStoredInToken } from '@/util/auth.interface';
 
 @Service()
 export class UserController {
@@ -29,7 +32,11 @@ export class UserController {
     try {
       const users: User[] = await this.userService.getAll()
 
-      return res.status(200).json(users)
+      return res.status(200).json({
+        success: true,
+        message: "Users found",
+        data: { users }
+      })
     } catch (error) {
       next(error)
     }
@@ -39,7 +46,11 @@ export class UserController {
     try {
       const user: User = await this.userService.findOne(parseInt(req.params.id))
 
-      return res.status(200).json(user)
+      return res.status(200).json({
+        success: true,
+        message: "User found",
+        data: { user }
+      })
     } catch (error) {
       next(error)
     }
@@ -48,9 +59,15 @@ export class UserController {
   public async register(req: Request, res: Response, next: NextFunction) {
     try {
       const userData: CreateUserDto = req.body
-      const user = await this.userService.create(userData)
 
-      return res.status(201).json(user)
+      const user = await this.userService.create(userData)
+      const token = this.generateToken(user.id)
+      
+      return res.status(200).json({
+        success: true,
+        message: "User registered successfully",
+        data: { user, token }
+      })
     } catch (error) {
       next(error)
     }
@@ -58,11 +75,17 @@ export class UserController {
 
   public async login(req: Request, res: Response, next: NextFunction) {
     try {
-      console.log('hi')
       const userData: UserLoginDto = req.body
 
-      const user = await this.userService.login(userData)
-      return res.status(200).json(user)
+      const user: User = await this.userService.login(userData)
+      console.log(user.id)
+      const token = this.generateToken(user.id)
+
+      return res.status(200).json({
+        success: true,
+        message: "User logged in successfully",
+        data: { user, token }
+      })
     } catch (error) {
       next(error)
     }
@@ -82,9 +105,20 @@ export class UserController {
 
       const user = await this.userService.update(userId, updateData)
 
-      return res.status(200).json(user)
+      return res.status(200).json({
+        success: true,
+        message: "User successfully updated",
+        data: { user }
+      })
     } catch (error) {
       next(error)
     }
+  }
+
+  private generateToken(id: number) {
+    const dataStoredInToken: DataStoredInToken = { id }
+    const expiresIn: number = 60 * 60
+
+    return jsonwebtoken.sign(dataStoredInToken, JWT_SECRET, { expiresIn })
   }
 }
