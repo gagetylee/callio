@@ -17,7 +17,6 @@ export class UserRoutes {
 
   public initRoutes() {
     this.router.get('/', this.userController.getAll);
-    // this.router.get('/login', validate(UserLoginDto, 'body'), this.userController.login);
     this.router.get('/:id', this.userController.findOne);
 
     this.router.post('/', validate(CreateUserDto, 'body'), this.userController.register);
