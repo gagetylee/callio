@@ -1,26 +1,32 @@
-import { Entity, PrimaryKey, Property } from "@mikro-orm/core";
+import { Entity, OneToOne, PrimaryKey, Property } from "@mikro-orm/core";
+import { CreateProfileDto } from "../profile/dto/profileCreate.dto";
+import { Profile } from "../profile/profile.entity";
 import { IUser } from "./user.interface";
 
 @Entity()
 export class User {
+  constructor(profileData?: CreateProfileDto) {
+    this.profile = new Profile(profileData)
+  }
+
   @PrimaryKey()
-  id!: number
+    id!: number
 
-  @Property({ type: 'text', name: 'first_name' })
-  firstName!: string;
-
-  @Property({ type: 'text', name: 'last_name' })
-  lastName!: string;
+  @OneToOne()
+    profile!: Profile;
 
   @Property({ type: 'text', unique: true })
-  email: string;
+    username!: string;
+
+  @Property({ type: 'text', unique: true })
+    email!: string;
 
   @Property({ type: 'text' })
-  password: string;
+    password!: string;
 
   @Property({ name: 'created_at', onCreate: () => new Date() })
-  createdAt: Date = new Date()
+    createdAt: Date = new Date()
 
   @Property({ name: 'updated_at', onUpdate: () => new Date() })
-  updatedAt: Date = new Date()
+    updatedAt: Date = new Date()
 }

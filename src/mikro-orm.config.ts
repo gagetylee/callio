@@ -1,11 +1,13 @@
-import { MikroORM, Options, ReflectMetadataProvider, EntityManager } from "@mikro-orm/core";
-import { EntityRepository, PostgreSqlDriver} from "@mikro-orm/postgresql";
+import { MikroORM, Options, ReflectMetadataProvider } from "@mikro-orm/core";
+import { EntityRepository, PostgreSqlDriver, EntityManager } from "@mikro-orm/postgresql";
 import { User } from "./components/user/user.entity";
 import {DB_HOST, DB_NAME, DB_PORT, NODE_ENV} from "@/config";
 import { TSMigrationGenerator } from "@mikro-orm/migrations";
+import { Profile } from "./components/profile/profile.entity";
+import { ProfileRepository } from "./components/profile/profile.repository";
 
 const config: Options<PostgreSqlDriver> = {
-  entities: [User],
+  entities: [User, Profile],
   dbName: DB_NAME,
   host: DB_HOST,
   port: parseInt(DB_PORT),
@@ -30,9 +32,10 @@ const config: Options<PostgreSqlDriver> = {
 }
 
 export const DI = {} as {
-  orm: MikroORM;
+  orm: MikroORM<PostgreSqlDriver>;
   em: EntityManager;
   userRepository: EntityRepository<User>;
+  profileRepository: ProfileRepository
 };
 
 export default config
