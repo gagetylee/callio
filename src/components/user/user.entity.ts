@@ -1,11 +1,11 @@
 import { Entity, OneToOne, PrimaryKey, Property } from "@mikro-orm/core";
-import { CreateProfileDto } from "../profile/dto/profileCreate.dto";
+import { ProfileCreateDto } from "../profile/dto/profileCreate.dto";
 import { Profile } from "../profile/profile.entity";
 import { IUser } from "./user.interface";
 
 @Entity()
 export class User {
-  constructor(profileData?: CreateProfileDto) {
+  constructor(profileData?: ProfileCreateDto) {
     this.profile = new Profile(profileData)
   }
 

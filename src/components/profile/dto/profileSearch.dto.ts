@@ -7,5 +7,5 @@ export class ProfileSearchDto {
   
   @IsOptional()
   @IsNumber()
-    limit: number
+    limit?: number
 }

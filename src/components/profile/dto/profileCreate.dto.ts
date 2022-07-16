@@ -1,11 +1,11 @@
 import { IsOptional, IsString } from "class-validator";
 
-export class CreateProfileDto {
+export class ProfileCreateDto {
   @IsOptional()
   @IsString()
-  first_name: string
+  firstName: string
 
   @IsOptional()
   @IsString()
-  last_name: string
+  lastName: string
 }

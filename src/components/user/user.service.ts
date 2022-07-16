@@ -3,7 +3,7 @@ import { User } from './user.entity';
 import { HttpException } from '@/exceptions/HttpException';
 import { CreateUserDto } from './dto/createUser.dto';
 import { DI } from '@/mikro-orm.config';
-import {EntityRepository} from "@mikro-orm/core";
+import {EntityRepository, wrap} from "@mikro-orm/core";
 import { EditUserDto } from './dto/editUser.dto';
 import bcrypt from 'bcrypt'
 import { UserLoginDto } from './dto/user.dto.login';
@@ -61,7 +61,9 @@ export class UserService {
 
     if (!user) throw new HttpException(404, 'User not found')
 
-    const updatedUserData: User = this.userRepository.assign(user, credentials)
-    return updatedUserData
+    const updatedUser = wrap(user).assign(credentials)
+    this.userRepository.flush()
+
+    return updatedUser
   }
 }

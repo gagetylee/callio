@@ -27,6 +27,7 @@ export class ProfileRepository extends EntityRepository<Profile> {
     }
 
     const res = await knexQuery
+      .limit(params.limit || 25)
     
     return res.map(raw => {
       return <Profile> {
