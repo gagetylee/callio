@@ -5,9 +5,13 @@ import {DB_HOST, DB_NAME, DB_PORT, NODE_ENV} from "@/config";
 import { TSMigrationGenerator } from "@mikro-orm/migrations";
 import { Profile } from "./components/profile/profile.entity";
 import { ProfileRepository } from "./components/profile/profile.repository";
+import { Project } from "./components/project/project.entity";
+import { ProjectMember } from "./components/projectMember/projectMember.entity";
+import { ProjectRepository } from "./components/project/project.repository";
+// import { ProjectProfile } from "./components/project/projectProfile.entity";
 
 const config: Options<PostgreSqlDriver> = {
-  entities: [User, Profile],
+  entities: [User, Profile, Project, ProjectMember],
   dbName: DB_NAME,
   host: DB_HOST,
   port: parseInt(DB_PORT),
@@ -35,7 +39,9 @@ export const DI = {} as {
   orm: MikroORM<PostgreSqlDriver>;
   em: EntityManager;
   userRepository: EntityRepository<User>;
-  profileRepository: ProfileRepository
+  profileRepository: ProfileRepository;
+  projectRepository: ProjectRepository;
+  // profileProjectRepository: EntityRepository<ProfileProject>
 };
 
 export default config

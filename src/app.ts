@@ -12,6 +12,7 @@ import {User} from "@/components/user/user.entity";
 import { PostgreSqlDriver } from '@mikro-orm/postgresql';
 import { Profile } from './components/profile/profile.entity';
 import { ProfileRepository } from './components/profile/profile.repository';
+import { Project } from './components/project/project.entity';
 
 
 (async function main() {
@@ -21,7 +22,8 @@ import { ProfileRepository } from './components/profile/profile.repository';
   DI.orm = await MikroORM.init<PostgreSqlDriver>(config)
   DI.em = DI.orm.em.fork()
   DI.userRepository = DI.orm.em.fork().getRepository(User);
-  DI.profileRepository = DI.orm.em.fork().getRepository(Profile)
+  DI.profileRepository = DI.orm.em.fork().getRepository(Profile);
+  DI.projectRepository = DI.orm.em.fork().getRepository(Project)
   
   app.use((_1, _2, next) => RequestContext.create(DI.orm.em, next));
 

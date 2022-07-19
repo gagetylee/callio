@@ -5,8 +5,7 @@ import { ProfileSearchDto } from "./dto/profileSearch.dto";
 import { Profile } from "./profile.entity";
 
 export class ProfileRepository extends EntityRepository<Profile> {
-  private queryBuilder = this.em.createQueryBuilder(Profile)
-
+  
   public async search(params: ProfileSearchDto) {
     const conn = this.em.getConnection()
     const knex = conn.getKnex()
