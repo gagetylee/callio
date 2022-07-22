@@ -1,16 +1,16 @@
 import { Collection, Entity, EntityRepositoryType, ManyToMany, OneToMany, OneToOne, PrimaryKey, Property } from "@mikro-orm/core";
-import { Project } from "../project/project.entity";
-import { CreateUserDto } from "../user/dto/createUser.dto";
-import { User } from "../user/user.entity";
-import { ProfileCreateDto } from "./dto/profileCreate.dto";
-import { ProfileRepository } from "./profile.repository";
+import { Project } from "./project.entity";
+import { UserCreateDto } from "../dtos/userCreate.dto";
+import { User } from "./user.entity";
+import { ProfileCreateDto } from "../dtos/profileCreate.dto";
+import { ProfileRepository } from "../repositories/profile.repository";
 // import { ProjectProfile } from "../project/projectProfile.entity";
-import { ProjectMember } from "../projectMember/projectMember.entity";
+import { ProjectProfile } from "./projectProfile.entity";
 
 @Entity({ customRepository: () => ProfileRepository })
 export class Profile {
   [EntityRepositoryType]?: ProfileRepository
-  
+
   constructor({ firstName, lastName }: ProfileCreateDto){
     this.firstName = firstName
     this.lastName = lastName
@@ -21,10 +21,10 @@ export class Profile {
 
   @OneToOne({ type: 'User', mappedBy: 'profile' })
     user!: User
-  
-  @OneToMany(() => ProjectMember, projectMember => projectMember.profile)
-    projectMember = new Collection<ProjectMember>(this)
-  
+
+  @OneToMany(() => ProjectProfile, projectProfile => projectProfile.profile)
+    projects = new Collection<ProjectProfile>(this)
+
   @Property({ nullable: true })
     firstName?: string
 
@@ -33,7 +33,7 @@ export class Profile {
 
   @Property({ nullable: true })
     bio?: string
-  
+
   @Property({ nullable: true })
     location?: string
 }

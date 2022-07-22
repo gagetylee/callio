@@ -1,11 +1,11 @@
 import { Service } from 'typedi';
-import { UserService } from './user.service';
+import { UserService } from '../services/user.service';
 import express, { Response, Request, NextFunction } from 'express';
-import { User } from './user.entity';
-import { CreateUserDto } from './dto/createUser.dto';
+import { User } from '../entities/user.entity';
+import { UserCreateDto } from '../dtos/userCreate.dto';
 import { logger } from '@/config/logger';
-import { EditUserDto } from './dto/editUser.dto';
-import { UserLoginDto } from './dto/user.dto.login';
+import { UserEditDto } from '../dtos/userEdit.dto';
+import { UserLoginDto } from '../dtos/userLogin.dto';
 import jsonwebtoken from 'jsonwebtoken';
 import { JWT_SECRET } from '@/config';
 import { DataStoredInToken } from '@/util/auth.interface';
@@ -56,13 +56,13 @@ export class UserController {
     }
   }
 
-  public async register(req: Request, res: Response, next: NextFunction) {
+  public async register(req: Request, res: Response, next: NextFunction): Promise<Response> {
     try {
-      const userData: CreateUserDto = req.body
+      const userData: UserCreateDto = req.body
 
-      const user = await this.userService.create(userData)
+      const user: User = await this.userService.create(userData)
       const token = this.generateToken(user.id)
-      
+
       return res.status(200).json({
         success: true,
         message: "User registered successfully",
@@ -91,13 +91,13 @@ export class UserController {
     }
   }
 
-  
+
   public async update(req: Request, res: Response, next: NextFunction) {
     try {
       const userId: number = parseInt(req.params.id)
       // const userData: User = await this.userService.findOne(userId)
 
-      const updateData: EditUserDto = {}
+      const updateData: UserEditDto = {}
 
       for (let key in req.body) {
         updateData[key] = req.body[key]

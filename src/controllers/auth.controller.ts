@@ -1,11 +1,11 @@
 import { DataStoredInToken } from "@/util/auth.interface";
 import { NextFunction, Request, Response } from "express";
-import { LoginDto } from "./dto/login.dto";
+import { LoginDto } from "../dtos/login.dto";
 import jsonwebtoken from "jsonwebtoken"
 import { JWT_SECRET } from "@/config";
 
-import { User } from "../user/user.entity";
-import { AuthService } from "./auth.service";
+import { User } from "../entities/user.entity";
+import { AuthService } from "../services/auth.service";
 import { Service } from "typedi";
 
 @Service()
@@ -33,7 +33,7 @@ export class AuthController {
 
   private generateToken(id: number) {
     const dataStoredInToken: DataStoredInToken = { id }
-    const expiresIn: number = 60 * 60
+    const expiresIn: number = 60 * 60 * 60
 
     return jsonwebtoken.sign(dataStoredInToken, JWT_SECRET, { expiresIn })
   }

@@ -1,12 +1,13 @@
+import { ProfileStatus, ProjectProfile } from "@/entities/projectProfile.entity";
 import { HttpException } from "@/exceptions/HttpException";
 import { DI } from "@/mikro-orm.config";
-import { wrap } from "@mikro-orm/core";
+import { Collection, wrap } from "@mikro-orm/core";
 import { EntityRepository } from "@mikro-orm/postgresql";
 import Container, { Service } from "typedi";
-import { ProfileCreateDto } from "./dto/profileCreate.dto";
-import { ProfileSearchDto } from "./dto/profileSearch.dto";
-import { Profile } from "./profile.entity";
-import { ProfileRepository } from "./profile.repository";
+import { ProfileCreateDto } from "../dtos/profileCreate.dto";
+import { ProfileSearchDto } from "../dtos/profileSearch.dto";
+import { Profile } from "../entities/profile.entity";
+import { ProfileRepository } from "../repositories/profile.repository";
 
 @Service()
 export class ProfileService {
@@ -28,12 +29,12 @@ export class ProfileService {
     if (profiles.length === 0) {
       throw new HttpException(404, 'No matching profiles found')
     }
-    
+
     return profiles
   }
 
-  public async update(userId: number, params: ProfileCreateDto): Promise<Profile> {
-    const profile: Profile = await this.profileRepository.findOne({ id: userId })
+  public async update(profileId: number, params: ProfileCreateDto): Promise<Profile> {
+    const profile: Profile = await this.profileRepository.findOne({ id: profileId })
 
     if (!profile) {
       throw new HttpException(404, 'Profile not found')
@@ -51,4 +52,17 @@ export class ProfileService {
 
     return updatedProfile
   }
+
+  public async getInvites(profile: Profile) {
+    const loadedProfile = await wrap(profile).init()
+    const projects = await loadedProfile.projects.init()
+
+    const invites = await projects.matching({ where: { status: ProfileStatus.INVITED } })
+    if (invites.length === 0) {
+      throw new HttpException(404, 'No invites found')
+    }
+
+    return invites
+  }
+
 }

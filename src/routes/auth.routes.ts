@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { Container } from "typedi";
-import { AuthController } from "./auth.controller";
+import { AuthController } from "../controllers/auth.controller";
 
 export class AuthRoutes {
   readonly authController: AuthController = Container.get(AuthController)

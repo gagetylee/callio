@@ -1,7 +1,7 @@
-import { Profile } from '@/components/profile/profile.entity'
+import { Profile } from '@/entities/profile.entity'
 import { IsEmail, IsNotEmpty, IsOptional, IsString, MinLength } from 'class-validator'
 
-export class CreateUserDto {
+export class UserCreateDto {
   @IsString()
   @IsNotEmpty()
   public username: string

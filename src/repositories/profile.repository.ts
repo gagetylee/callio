@@ -1,11 +1,11 @@
 import { DI } from "@/mikro-orm.config";
 import { EntityRepository, PostgreSqlDriver, QueryBuilder } from "@mikro-orm/postgresql";
 import { Service } from "typedi";
-import { ProfileSearchDto } from "./dto/profileSearch.dto";
-import { Profile } from "./profile.entity";
+import { ProfileSearchDto } from "../dtos/profileSearch.dto";
+import { Profile } from "../entities/profile.entity";
 
 export class ProfileRepository extends EntityRepository<Profile> {
-  
+
   public async search(params: ProfileSearchDto) {
     const conn = this.em.getConnection()
     const knex = conn.getKnex()
@@ -27,7 +27,7 @@ export class ProfileRepository extends EntityRepository<Profile> {
 
     const res = await knexQuery
       .limit(params.limit || 25)
-    
+
     return res.map(raw => {
       return <Profile> {
         firstName: raw.first_name,

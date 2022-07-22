@@ -1,10 +1,10 @@
 import { UserRequest } from "@/util/auth.interface";
 import { NextFunction, Request, Response } from "express";
 import { Service } from "typedi";
-import { ProfileCreateDto } from "./dto/profileCreate.dto";
-import { ProfileSearchDto } from "./dto/profileSearch.dto";
-import { Profile } from "./profile.entity";
-import { ProfileService } from "./profile.service";
+import { ProfileCreateDto } from "../dtos/profileCreate.dto";
+import { ProfileSearchDto } from "../dtos/profileSearch.dto";
+import { Profile } from "../entities/profile.entity";
+import { ProfileService } from "../services/profile.service";
 
 @Service()
 export class ProfileController {
@@ -12,6 +12,7 @@ export class ProfileController {
     this.findOne = this.findOne.bind(this)
     this.search = this.search.bind(this)
     this.update = this.update.bind(this)
+    this.getInvites = this.getInvites.bind(this)
   }
 
   public async findOne(req: Request, res: Response, next: NextFunction) {
@@ -27,7 +28,6 @@ export class ProfileController {
       next(error)
     }
   }
-
 
   public async search(req: Request, res: Response, next: NextFunction): Promise<Response> {
     try {
@@ -48,12 +48,6 @@ export class ProfileController {
     }
   }
 
-  /**
-   * Private: true
-   * @param req 
-   * @param res 
-   * @param next 
-   */
   public async update(req: UserRequest, res: Response, next: NextFunction): Promise<Response> {
     try {
       const updateData: ProfileCreateDto = req.body
@@ -63,6 +57,21 @@ export class ProfileController {
         success: true,
         message: 'Profile successfully updated',
         data: updatedProfile
+      })
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  public async getInvites(req: UserRequest, res: Response, next: NextFunction): Promise<Response> {
+    try {
+      const profile: Profile = req.user.profile
+
+      const projectsInvitedTo = await this.profileService.getInvites(profile)
+      return res.status(200).send({
+        success: true,
+        message: "Found invites",
+        data: projectsInvitedTo
       })
     } catch (error) {
       next(error)

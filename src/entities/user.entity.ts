@@ -1,7 +1,7 @@
 import { Entity, OneToOne, PrimaryKey, Property } from "@mikro-orm/core";
-import { ProfileCreateDto } from "../profile/dto/profileCreate.dto";
-import { Profile } from "../profile/profile.entity";
-import { IUser } from "./user.interface";
+import { ProfileCreateDto } from "../dtos/profileCreate.dto";
+import { Profile } from "./profile.entity";
+import { IUser } from "../interfaces/user.interface";
 
 @Entity()
 export class User {
@@ -12,7 +12,7 @@ export class User {
   @PrimaryKey()
     id!: number
 
-  @OneToOne()
+  @OneToOne({wrappedReference: true})
     profile!: Profile;
 
   @Property({ type: 'text', unique: true })

@@ -1,8 +1,8 @@
 import { HttpException } from "@/exceptions/HttpException";
 import { DI } from "@/mikro-orm.config";
 import { DataStoredInToken } from "@/util/auth.interface";
-import { User } from "../user/user.entity";
-import { LoginDto } from "./dto/login.dto";
+import { User } from "../entities/user.entity";
+import { LoginDto } from "../dtos/login.dto";
 import jsonwebtoken from "jsonwebtoken"
 import { JWT_SECRET } from "@/config";
 import { compare } from "bcrypt";

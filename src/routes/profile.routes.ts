@@ -1,10 +1,10 @@
 import { Router } from "express";
 import Container from "typedi";
-import { ProfileController } from "./profile.controller";
+import { ProfileController } from "../controllers/profile.controller";
 import validate from "@/middleware/validation.middleware"
-import { ProfileSearchDto } from "./dto/profileSearch.dto";
+import { ProfileSearchDto } from "../dtos/profileSearch.dto";
 import authorize from "@/middleware/authorization.middleware";
-import { ProfileCreateDto } from "./dto/profileCreate.dto";
+import { ProfileCreateDto } from "../dtos/profileCreate.dto";
 
 export class ProfileRoutes {
   readonly profileController: ProfileController = Container.get(ProfileController)
@@ -15,9 +15,11 @@ export class ProfileRoutes {
   }
 
   public initRoutes() {
-    this.router.get('/:username', this.profileController.findOne)
-    this.router.get('/:query?', validate(ProfileSearchDto, 'body'), this.profileController.search)
-    
+    this.router.get('/username/:username', this.profileController.findOne)
+    this.router.get('/query/:query?', validate(ProfileSearchDto, 'body'), this.profileController.search)
+
+    this.router.get('/invites', authorize, this.profileController.getInvites)
+
     this.router.put('/', authorize, validate(ProfileCreateDto, 'body'), this.profileController.update)
   }
 }

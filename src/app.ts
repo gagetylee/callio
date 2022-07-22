@@ -1,18 +1,18 @@
 import 'reflect-metadata';
 import express, { Application } from 'express';
 import 'tsconfig-paths';
-import { registerApiRoutes } from './components';
+import { registerApiRoutes } from './index';
 import { PORT } from '@/config';
 import errorMiddleware from './middleware/error.middleware';
 import swaggerUi from 'swagger-ui-express'
 import swaggerJsdoc from 'swagger-jsdoc'
 import { MikroORM, RequestContext } from '@mikro-orm/core';
 import config, { DI } from './mikro-orm.config'
-import {User} from "@/components/user/user.entity";
+import {User} from "@/entities/user.entity";
 import { PostgreSqlDriver } from '@mikro-orm/postgresql';
-import { Profile } from './components/profile/profile.entity';
-import { ProfileRepository } from './components/profile/profile.repository';
-import { Project } from './components/project/project.entity';
+import { Profile } from './entities/profile.entity';
+import { ProfileRepository } from './repositories/profile.repository';
+import { Project } from './entities/project.entity';
 
 
 (async function main() {
@@ -24,7 +24,7 @@ import { Project } from './components/project/project.entity';
   DI.userRepository = DI.orm.em.fork().getRepository(User);
   DI.profileRepository = DI.orm.em.fork().getRepository(Profile);
   DI.projectRepository = DI.orm.em.fork().getRepository(Project)
-  
+
   app.use((_1, _2, next) => RequestContext.create(DI.orm.em, next));
 
   app.use(express.json());
@@ -37,19 +37,19 @@ import { Project } from './components/project/project.entity';
   app.use(errorMiddleware)
 
   // Setup swagger
-  const options = {
-    definition: {
-      openapi: '3.0.0',
-      info: {
-        title: 'Callio',
-        version: '1.0.0',
-      },
-    },
-    apis: ['./src/components/**/*.routes.ts'], // files containing annotations as above
-  };
+  // const options = {
+  //   definition: {
+  //     openapi: '3.0.0',
+  //     info: {
+  //       title: 'Callio',
+  //       version: '1.0.0',
+  //     },
+  //   },
+  //   apis: ['./src/components/**/*.routes.ts'], // files containing annotations as above
+  // };
 
-  const swaggerDoc = swaggerJsdoc(options)
-  app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc));
+  // const swaggerDoc = swaggerJsdoc(options)
+  // app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerDoc));
 
   // Listen
   app.listen(PORT, () => {

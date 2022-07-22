@@ -1,12 +1,12 @@
 import { Service } from 'typedi';
-import { User } from './user.entity';
+import { User } from '../entities/user.entity';
 import { HttpException } from '@/exceptions/HttpException';
-import { CreateUserDto } from './dto/createUser.dto';
+import { UserCreateDto } from '../dtos/userCreate.dto';
 import { DI } from '@/mikro-orm.config';
-import {EntityRepository, wrap} from "@mikro-orm/core";
-import { EditUserDto } from './dto/editUser.dto';
+import {EntityRepository, LoadStrategy, wrap} from "@mikro-orm/core";
+import { UserEditDto } from '../dtos/userEdit.dto';
 import bcrypt from 'bcrypt'
-import { UserLoginDto } from './dto/user.dto.login';
+import { UserLoginDto } from '../dtos/userLogin.dto';
 
 @Service()
 export class UserService {
@@ -31,7 +31,7 @@ export class UserService {
   }
 
 
-  public async create(credentials: CreateUserDto): Promise<User> {
+  public async create(credentials: UserCreateDto): Promise<User> {
     const emailExists = await this.userRepository.findOne({ email: credentials.email })
     if (emailExists) throw new HttpException(409, 'Email is already in use')
 
@@ -55,8 +55,8 @@ export class UserService {
     return user
   }
 
-  
-  public async update(id: number, credentials: EditUserDto): Promise<User> {
+
+  public async update(id: number, credentials: UserEditDto): Promise<User> {
     const user = await this.userRepository.findOne({ id })
 
     if (!user) throw new HttpException(404, 'User not found')

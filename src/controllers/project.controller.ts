@@ -1,10 +1,10 @@
 import { UserRequest } from "@/util/auth.interface"
 import { NextFunction, Request, Response } from "express"
 import { Service } from "typedi"
-import { Profile } from "../profile/profile.entity"
-import { ProjectCreateDto } from "./dto/projectCreate.dto"
-import { Project } from "./project.entity"
-import { ProjectService } from "./project.service"
+import { Profile } from "../entities/profile.entity"
+import { ProjectCreateDto } from "../dtos/projectCreate.dto"
+import { Project } from "../entities/project.entity"
+import { ProjectService } from "../services/project.service"
 
 @Service()
 export class ProjectController {
@@ -12,6 +12,7 @@ export class ProjectController {
     this.findOne = this.findOne.bind(this)
     this.getAll = this.getAll.bind(this)
     this.create = this.create.bind(this)
+    this.inviteUser = this.inviteUser.bind(this)
   }
 
   public async findOne(req: Request, res: Response, next: NextFunction) {
@@ -59,13 +60,21 @@ export class ProjectController {
     }
   }
 
-  // public async inviteUser(req: UserRequest, res: Response, next: NextFunction) {
-  //   try {
-  //     const user: Profile = req.user.profile.
+  public async inviteUser(req: UserRequest, res: Response, next: NextFunction) {
+    try {
+      const user: Profile = req.user.profile
+      const projectId: number = parseInt(req.params.projectId)
+      const inviteUserId: number = parseInt(req.body.inviteUser)
 
+      const data = await this.projectService.inviteUser(projectId, user, inviteUserId)
 
-  //   } catch (error) {
-  //     next(error)
-  //   }
-  // }
+      return res.status(200).json({
+        success: true,
+        message: 'User invited',
+        data
+      })
+    } catch (error) {
+      next(error)
+    }
+  }
 }
