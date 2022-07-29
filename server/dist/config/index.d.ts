@@ -1,1 +1,0 @@
-export declare const NODE_ENV: string, DB_URL: string, PORT: string, DB_HOST: string, DB_PORT: string, DB_USER: string, DB_PASSWORD: string, DB_NAME: string, LOG_DIR: string, LOG_FORMAT: string, JWT_SECRET: string;

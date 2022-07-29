@@ -1,2 +1,0 @@
-2022-07-06 22:38:52 error: [GET] /api/v1/user >> StatusCode:: 404, Message:: No users found
-2022-07-06 22:42:06 error: [GET] /api/v1/user >> StatusCode:: 404, Message:: No users found
