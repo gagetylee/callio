@@ -1,4 +1,3 @@
-import { Profile } from '@/entities/profile.entity'
 import { IsEmail, IsNotEmpty, IsOptional, IsString, MinLength } from 'class-validator'
 
 export class UserCreateDto {
@@ -13,6 +12,4 @@ export class UserCreateDto {
   @MinLength(8, {message: 'Password must be at least 8 characters'})
   public password: string
 
-  @IsOptional()
-  public profile: Profile
 }

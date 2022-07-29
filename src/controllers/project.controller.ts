@@ -1,7 +1,7 @@
 import { UserRequest } from "@/util/auth.interface"
 import { NextFunction, Request, Response } from "express"
 import { Service } from "typedi"
-import { Profile } from "../entities/profile.entity"
+import { User } from "../entities/user.entity"
 import { ProjectCreateDto } from "../dtos/projectCreate.dto"
 import { Project } from "../entities/project.entity"
 import { ProjectService } from "../services/project.service"
@@ -14,6 +14,54 @@ export class ProjectController {
     this.create = this.create.bind(this)
     this.inviteUser = this.inviteUser.bind(this)
   }
+
+  /**
+   * ===========================================================================================
+   * PRIVATE controllers
+   * ===========================================================================================
+   */
+
+   public async create(req: UserRequest, res: Response, next: NextFunction) {
+    try {
+      const projectData: ProjectCreateDto = req.body
+
+      const profile: User = req.user
+      const project: Project = await this.projectService.create(profile, projectData)
+
+      return res.status(200).json({
+        success: true,
+        message: 'Project successfully created',
+        data: project
+      })
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  public async inviteUser(req: UserRequest, res: Response, next: NextFunction) {
+    try {
+      const user: User = req.user
+      const projectId: number = parseInt(req.params.projectId)
+      const inviteUserId: number = parseInt(req.body.inviteUser)
+
+      const data = await this.projectService.inviteUser(projectId, user, inviteUserId)
+
+      return res.status(200).json({
+        success: true,
+        message: 'User invited',
+        data
+      })
+    } catch (error) {
+      next(error)
+    }
+  }
+
+
+/**
+   * ===========================================================================================
+   * PUBLIC controllers
+   * ===========================================================================================
+   */
 
   public async findOne(req: Request, res: Response, next: NextFunction) {
     try {
@@ -43,38 +91,4 @@ export class ProjectController {
     }
   }
 
-  public async create(req: UserRequest, res: Response, next: NextFunction) {
-    try {
-      const projectData: ProjectCreateDto = req.body
-
-      const profile: Profile = req.user.profile
-      const project: Project = await this.projectService.create(profile, projectData)
-
-      return res.status(200).json({
-        success: true,
-        message: 'Project successfully created',
-        data: project
-      })
-    } catch (error) {
-      next(error)
-    }
-  }
-
-  public async inviteUser(req: UserRequest, res: Response, next: NextFunction) {
-    try {
-      const user: Profile = req.user.profile
-      const projectId: number = parseInt(req.params.projectId)
-      const inviteUserId: number = parseInt(req.body.inviteUser)
-
-      const data = await this.projectService.inviteUser(projectId, user, inviteUserId)
-
-      return res.status(200).json({
-        success: true,
-        message: 'User invited',
-        data
-      })
-    } catch (error) {
-      next(error)
-    }
-  }
 }

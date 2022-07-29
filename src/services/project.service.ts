@@ -3,21 +3,18 @@ import { HttpException } from "@/exceptions/HttpException";
 import { DI } from "@/mikro-orm.config";
 import { Collection, LoadStrategy } from "@mikro-orm/core";
 import { EntityRepository } from "@mikro-orm/postgresql";
-import { profile } from "console";
 import { Service } from "typedi";
-import { Profile } from "../entities/profile.entity";
-import { ProfileRepository } from "../repositories/profile.repository";
-import { ProfileStatus, ProjectProfile } from "../entities/projectProfile.entity";
+import { User } from "../entities/user.entity";
+import { ProjectUserStatus, ProjectUser } from "../entities/projectUser.entity";
 import { ProjectCreateDto } from "../dtos/projectCreate.dto";
 import { Project } from "../entities/project.entity";
 import { ProjectRepository } from "../repositories/project.repository";
-import { User } from "@/entities/user.entity";
 import { wrap } from "module";
 
 @Service()
 export class ProjectService {
   private projectRepository: ProjectRepository = DI.projectRepository
-  private profileRepository: ProfileRepository = DI.profileRepository
+  private userRepository: EntityRepository<User> = DI.userRepository
 
   public async findOne(id: number): Promise<Project> {
     const project: Project = await this.projectRepository.findOne({ id })
@@ -40,18 +37,17 @@ export class ProjectService {
 
   /**
    * Create a new project
-   * @param profile 
    * @param projectData 
    * @returns 
    */
-  public async create(profile: Profile, projectData: ProjectCreateDto) {
+  public async create(user: User, projectData: ProjectCreateDto) {
 
     const projectExists = await this.projectRepository.findOne({ name: projectData.name })
     if (projectExists) {
-      throw new HttpException(409, `Project name ${projectData.name}, already exists`)
+      throw new HttpException(409, `Project name already exists`)
     }
 
-    const project: Project = new Project(profile, projectData)
+    const project: Project = new Project(user, projectData)
     if (!project) {
       throw new HttpException(400, 'Error creating project')
     }
@@ -63,41 +59,40 @@ export class ProjectService {
   /**
    * Invite a user to project
    * @param projectId 
-   * @param profile 
    * @param inviteProfileId 
    * @returns 
    */
-  public async inviteUser(projectId: number, profile: Profile, inviteProfileId: number) {
+  public async inviteUser(projectId: number, user: User, inviteUserId: number) {
     const project: Project = await this.projectRepository.findOne({ id: projectId } )
     if (!project) {
       throw new HttpException(404, 'Project not found')
     }
 
-    const projectProfiles: Collection<ProjectProfile> = await project.profiles.init()
-    console.log(projectProfiles)
+    const projectUsers: Collection<ProjectUser> = await project.projectUsers.init()
+    // console.log(projectProfiles)
 
     // Confirm admin
-    const isAdmin = await projectProfiles.matching({ where: { profile, isAdmin: true } })
+    const isAdmin = await projectUsers.matching({ where: { user, isAdmin: true } })
     if (isAdmin.length === 0) {
       throw new HttpException(401, 'User is not authorized to send project invite')
     }
 
     // Check that invited user is not already a member
-    const userAlreadyMember = await projectProfiles.matching({ where: { profile: inviteProfileId } })
+    const userAlreadyMember = await projectUsers.matching({ where: { user: inviteUserId } })
     if (userAlreadyMember.length > 0) {
       throw new HttpException(400, 'User is already a member')
     }
 
-    const inviteUser: Profile = await this.profileRepository.findOne({ id: inviteProfileId })
+    const inviteUser: User = await this.userRepository.findOne({ id: inviteUserId })
     if (! inviteUser) {
       throw new HttpException(404, 'User not found')
     }
 
     // Add user with 'invited' status
-    const projectProfile = new ProjectProfile(project, inviteUser, ProfileStatus.INVITED, false)
-    project.profiles.add(projectProfile)
+    const projectUser = new ProjectUser(project, inviteUser, ProjectUserStatus.INVITED, false)
+    project.projectUsers.add(projectUser)
     await this.projectRepository.flush()
 
-    return projectProfiles
+    return projectUsers
   }
 }

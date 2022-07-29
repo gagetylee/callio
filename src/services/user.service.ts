@@ -3,14 +3,17 @@ import { User } from '../entities/user.entity';
 import { HttpException } from '@/exceptions/HttpException';
 import { UserCreateDto } from '../dtos/userCreate.dto';
 import { DI } from '@/mikro-orm.config';
-import {EntityRepository, LoadStrategy, wrap} from "@mikro-orm/core";
-import { UserEditDto } from '../dtos/userEdit.dto';
+import {EntityRepository, wrap} from "@mikro-orm/core";
+import { UserUpdateDto } from '../dtos/userUpdate.dto';
 import bcrypt from 'bcrypt'
 import { UserLoginDto } from '../dtos/userLogin.dto';
+import { UserSearchDto } from '@/dtos/userSearch.dto';
+import { UserRepository } from '@/repositories/user.repository';
+import { Project } from '@/entities/project.entity';
 
 @Service()
 export class UserService {
-  private userRepository: EntityRepository<User> = DI.userRepository
+  private userRepository: UserRepository = DI.userRepository
 
   public async getAll(): Promise<User[]> {
     const users: User[] = await this.userRepository.findAll();
@@ -22,12 +25,30 @@ export class UserService {
     return users;
   }
 
-  public async findOne(id: number): Promise<User> {
-    const user: User = await DI.userRepository.findOne({ id })
+  public async findOne(username: string): Promise<User> {
+    const user: User = await DI.userRepository.findOne({ username })
 
     if (!user) throw new HttpException(404, 'User not found')
 
     return user
+  }
+
+  public async search(query: UserSearchDto): Promise<User[]> {
+    const users: User[] = await DI.userRepository.find({ username: { $like: query.search }})
+    if (users.length === 0) {
+      throw new HttpException(404, 'No users found')
+    }
+    return users
+  }
+
+  public async getInvites(userId: number): Promise<Project[]> {
+    const invites: Project[] = await this.userRepository.findInvites(userId)
+
+    if (invites.length === 0) {
+      throw new HttpException(404, 'No invites found')
+    }
+
+    return invites
   }
 
 
@@ -56,9 +77,7 @@ export class UserService {
   }
 
 
-  public async update(id: number, credentials: UserEditDto): Promise<User> {
-    const user = await this.userRepository.findOne({ id })
-
+  public async update(user: User, credentials: UserUpdateDto): Promise<User> {
     if (!user) throw new HttpException(404, 'User not found')
 
     const updatedUser = wrap(user).assign(credentials)

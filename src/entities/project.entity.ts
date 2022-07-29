@@ -1,28 +1,19 @@
 import { Collection, Entity, EntityRepositoryType, ManyToMany, ManyToOne, OneToMany, PrimaryKey, Property } from "@mikro-orm/core";
-import { Profile } from "./profile.entity";
-import { ProfileStatus, ProjectProfile } from "./projectProfile.entity";
+import { User } from "./user.entity";
+import { ProjectUserStatus, ProjectUser } from "./projectUser.entity";
 import { ProjectCreateDto } from "../dtos/projectCreate.dto";
 import { ProjectRepository } from "../repositories/project.repository";
+import { BaseEntity } from "./base.entity";
 
 @Entity({ customRepository: () => ProjectRepository })
-export class Project {
+export class Project extends BaseEntity {
   [EntityRepositoryType]?: ProjectRepository
-
-  constructor(creator: Profile, { name, description, minUsers, maxUsers }: ProjectCreateDto) {
-    this.profiles.add(new ProjectProfile(this, creator, ProfileStatus.ACTIVE, true))
-
-    // this.profiles.add(creator)
-    this.name = name
-    this.description = description
-    this.minimumUsers = minUsers || 1
-    this.maximumUsers = maxUsers || 2
-  }
 
   @PrimaryKey()
     id!: number
 
-  @OneToMany(() => ProjectProfile, projectProfile => projectProfile.project)
-    profiles = new Collection<ProjectProfile>(this)
+  @OneToMany(() => ProjectUser, projectUser => projectUser.project, { hidden: true })
+    projectUsers = new Collection<ProjectUser>(this)
 
   @Property({ unique: true })
     name!: string
@@ -36,4 +27,12 @@ export class Project {
   @Property({ name: 'maximum_users' })
     maximumUsers: number
 
+    constructor(creator: User, { name, description, minUsers, maxUsers }: ProjectCreateDto) {
+      super()
+      this.projectUsers.add(new ProjectUser(this, creator, ProjectUserStatus.ACTIVE, true))
+      this.name = name
+      this.description = description
+      this.minimumUsers = minUsers || 1
+      this.maximumUsers = maxUsers || 2
+    }
 }

@@ -10,8 +10,6 @@ import { MikroORM, RequestContext } from '@mikro-orm/core';
 import config, { DI } from './mikro-orm.config'
 import {User} from "@/entities/user.entity";
 import { PostgreSqlDriver } from '@mikro-orm/postgresql';
-import { Profile } from './entities/profile.entity';
-import { ProfileRepository } from './repositories/profile.repository';
 import { Project } from './entities/project.entity';
 
 
@@ -22,7 +20,6 @@ import { Project } from './entities/project.entity';
   DI.orm = await MikroORM.init<PostgreSqlDriver>(config)
   DI.em = DI.orm.em.fork()
   DI.userRepository = DI.orm.em.fork().getRepository(User);
-  DI.profileRepository = DI.orm.em.fork().getRepository(Profile);
   DI.projectRepository = DI.orm.em.fork().getRepository(Project)
 
   app.use((_1, _2, next) => RequestContext.create(DI.orm.em, next));

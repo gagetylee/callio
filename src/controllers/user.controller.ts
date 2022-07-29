@@ -4,11 +4,14 @@ import express, { Response, Request, NextFunction } from 'express';
 import { User } from '../entities/user.entity';
 import { UserCreateDto } from '../dtos/userCreate.dto';
 import { logger } from '@/config/logger';
-import { UserEditDto } from '../dtos/userEdit.dto';
+import { UserUpdateDto } from '../dtos/userUpdate.dto';
 import { UserLoginDto } from '../dtos/userLogin.dto';
 import jsonwebtoken from 'jsonwebtoken';
 import { JWT_SECRET } from '@/config';
-import { DataStoredInToken } from '@/util/auth.interface';
+import { DataStoredInToken, UserRequest } from '@/util/auth.interface';
+import { UserSearchDto } from '@/dtos/userSearch.dto';
+import { ProjectService } from '@/services/project.service';
+import { Project } from '@/entities/project.entity';
 
 @Service()
 export class UserController {
@@ -18,16 +21,58 @@ export class UserController {
     this.register = this.register.bind(this);
     this.login = this.login.bind(this);
     this.update = this.update.bind(this);
+    this.getInvites = this.getInvites.bind(this);
+  }
+  
+  /**
+   * ===========================================================================================
+   * PRIVATE controllers
+   * ===========================================================================================
+   */
+
+   public async update(req: UserRequest, res: Response, next: NextFunction) {
+    try {
+      const user: User = req.user
+      const updateData: UserUpdateDto = {}
+
+      for (let key in req.body) {
+        updateData[key] = req.body[key]
+      }
+
+      const updatedUser = await this.userService.update(user, updateData)
+      
+      return res.status(200).json({
+        success: true,
+        message: "User successfully updated",
+        data: { user }
+      })
+    } catch (error) {
+      next(error)
+    }
   }
 
+  public async getInvites(req: UserRequest, res: Response, next: NextFunction) {
+    try {
+      const user: User = req.user
+      const projectInvites: Project[] = await this.userService.getInvites(user.id)
+
+      return res.status(200).json({
+        success: true,
+        message: 'Invites found',
+        data: projectInvites
+      })
+    } catch (error) {
+      next(error)
+    }
+  }
+
+
   /**
-   * GET /user
-   *
-   * @param req
-   * @param res
-   * @param next
-   * @returns
+   * ===========================================================================================
+   * PUBLIC controllers
+   * ===========================================================================================
    */
+
   public async getAll(req: Request, res: Response, next: NextFunction): Promise<Response> {
     try {
       const users: User[] = await this.userService.getAll()
@@ -44,12 +89,29 @@ export class UserController {
 
   public async findOne(req: Request, res: Response, next: NextFunction): Promise<Response> {
     try {
-      const user: User = await this.userService.findOne(parseInt(req.params.id))
+      const user: User = await this.userService.findOne(req.params.username)
 
       return res.status(200).json({
         success: true,
         message: "User found",
         data: { user }
+      })
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  public async search(req: Request, res: Response, next: NextFunction): Promise<Response> {
+    try {
+      const searchData: UserSearchDto = req.body
+      const searchQuery: string = req.query.search.toString()
+
+      const users: User[] = await this.userService.search({ ...searchData, search: searchQuery })
+
+      return res.status(200).json({
+        success: true,
+        message: 'Profiles found',
+        data: users
       })
     } catch (error) {
       next(error)
@@ -85,30 +147,6 @@ export class UserController {
         success: true,
         message: "User logged in successfully",
         data: { user, token }
-      })
-    } catch (error) {
-      next(error)
-    }
-  }
-
-
-  public async update(req: Request, res: Response, next: NextFunction) {
-    try {
-      const userId: number = parseInt(req.params.id)
-      // const userData: User = await this.userService.findOne(userId)
-
-      const updateData: UserEditDto = {}
-
-      for (let key in req.body) {
-        updateData[key] = req.body[key]
-      }
-
-      const user = await this.userService.update(userId, updateData)
-
-      return res.status(200).json({
-        success: true,
-        message: "User successfully updated",
-        data: { user }
       })
     } catch (error) {
       next(error)

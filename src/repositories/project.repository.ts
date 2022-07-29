@@ -1,8 +1,7 @@
 import { Collection } from "@mikro-orm/core";
 import { EntityRepository } from "@mikro-orm/postgresql";
 import { profile } from "console";
-import { Profile } from "../entities/profile.entity";
-import { ProjectProfile } from "../entities/projectProfile.entity";
+import { ProjectUser } from "../entities/projectUser.entity";
 import { Project } from "../entities/project.entity";
 import { IProject } from "../interfaces/project.interface";
 
