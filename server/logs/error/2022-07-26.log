@@ -1,0 +1,11 @@
+2022-07-26 16:16:46 error: [POST] /api/v1/user >> StatusCode:: 400, Message:: property firstName should not exist
+2022-07-26 16:28:49 error: [PUT] /api/v1/user/5 >> StatusCode:: 401, Message:: Authentication token missing
+2022-07-26 16:35:41 error: [GET] /api/v1/auth/login >> StatusCode:: 401, Message:: Invalid credentials
+2022-07-26 16:36:08 error: [GET] /api/v1/auth/login >> StatusCode:: 401, Message:: Invalid credentials
+2022-07-26 16:36:12 error: [GET] /api/v1/auth/login >> StatusCode:: 401, Message:: Invalid credentials
+2022-07-26 16:36:15 error: [GET] /api/v1/auth/login >> StatusCode:: 401, Message:: Invalid credentials
+2022-07-26 16:44:22 error: [GET] /api/v1/project >> StatusCode:: 404, Message:: No projects found
+2022-07-26 16:44:23 error: [GET] /api/v1/project >> StatusCode:: 404, Message:: No projects found
+2022-07-26 16:45:14 error: [GET] /api/v1/auth/login >> StatusCode:: 401, Message:: Invalid credentials
+2022-07-26 18:05:52 error: [POST] /api/v1/project >> StatusCode:: 409, Message:: Project name already exists
+2022-07-26 20:09:56 error: [PUT] /api/v1/project/32/invite >> StatusCode:: 401, Message:: Authentication token missing

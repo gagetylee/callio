@@ -1,0 +1,15 @@
+{
+    "keep": {
+        "days": false,
+        "amount": 30
+    },
+    "auditLog": "/Users/gagetylee/callio-api-v2/logs/error/.01e607a2b26b17c9cc84c5445dc6b01a4d9eaab7-audit.json",
+    "files": [
+        {
+            "date": 1657172329697,
+            "name": "/Users/gagetylee/callio-api-v2/logs/error/2022-07-06.log",
+            "hash": "c9128c3b3213c996987389c0e4d619e7b62b07d4a623963b2948f4f16ec896c2"
+        }
+    ],
+    "hashType": "sha256"
+}

@@ -1,0 +1,56 @@
+2022-07-20 18:35:19 error: [GET] /api/v1/project/17 >> StatusCode:: 404, Message:: Project not found
+2022-07-20 18:35:23 error: [GET] /api/v1/project >> StatusCode:: 404, Message:: No projects found
+2022-07-20 18:35:30 error: [POST] /api/v1/project >> StatusCode:: 401, Message:: Authentication token missing
+2022-07-20 18:35:34 error: [GET] /api/v1/auth/login >> StatusCode:: 401, Message:: Invalid credentials
+2022-07-20 18:36:57 error: uncaughtException: insert into "project_member" ("project_id", "profile_id") values (20, 11) returning "project_id", "profile_id" - null value in column "is_admin" of relation "project_member" violates not-null constraint
+NotNullConstraintViolationException: insert into "project_member" ("project_id", "profile_id") values (20, 11) returning "project_id", "profile_id" - null value in column "is_admin" of relation "project_member" violates not-null constraint
+    at PostgreSqlExceptionConverter.convertException (/Users/gagetylee/callio-api/node_modules/@mikro-orm/postgresql/PostgreSqlExceptionConverter.js:24:24)
+    at PostgreSqlDriver.convertException (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/drivers/DatabaseDriver.js:182:54)
+    at /Users/gagetylee/callio-api/node_modules/@mikro-orm/core/drivers/DatabaseDriver.js:186:24
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at PostgreSqlDriver.nativeInsertMany (/Users/gagetylee/callio-api/node_modules/@mikro-orm/knex/AbstractSqlDriver.js:219:21)
+    at PostgreSqlDriver.updateCollectionDiff (/Users/gagetylee/callio-api/node_modules/@mikro-orm/knex/AbstractSqlDriver.js:579:13)
+    at UnitOfWork.persistToDatabase (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/unit-of-work/UnitOfWork.js:637:13)
+    at PostgreSqlConnection.transactional (/Users/gagetylee/callio-api/node_modules/@mikro-orm/knex/AbstractSqlConnection.js:36:25)
+    at UnitOfWork.doCommit (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/unit-of-work/UnitOfWork.js:259:17)
+    at UnitOfWork.commit (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/unit-of-work/UnitOfWork.js:235:13)
+
+previous error: insert into "project_member" ("project_id", "profile_id") values (20, 11) returning "project_id", "profile_id" - null value in column "is_admin" of relation "project_member" violates not-null constraint
+    at Parser.parseErrorMessage (/Users/gagetylee/callio-api/node_modules/pg-protocol/src/parser.ts:369:69)
+    at Parser.handlePacket (/Users/gagetylee/callio-api/node_modules/pg-protocol/src/parser.ts:188:21)
+    at Parser.parse (/Users/gagetylee/callio-api/node_modules/pg-protocol/src/parser.ts:103:30)
+    at Socket.<anonymous> (/Users/gagetylee/callio-api/node_modules/pg-protocol/src/index.ts:7:48)
+    at Socket.emit (node:events:390:28)
+    at addChunk (node:internal/streams/readable:324:12)
+    at readableAddChunk (node:internal/streams/readable:297:9)
+    at Socket.Readable.push (node:internal/streams/readable:234:10)
+    at TCP.onStreamRead (node:internal/stream_base_commons:199:23)
+    at TCP.callbackTrampoline (node:internal/async_hooks:130:17)
+2022-07-20 18:42:03 error: uncaughtException: insert into "project_member" ("project_id", "profile_id") values (21, 11) returning "project_id", "profile_id" - null value in column "is_admin" of relation "project_member" violates not-null constraint
+NotNullConstraintViolationException: insert into "project_member" ("project_id", "profile_id") values (21, 11) returning "project_id", "profile_id" - null value in column "is_admin" of relation "project_member" violates not-null constraint
+    at PostgreSqlExceptionConverter.convertException (/Users/gagetylee/callio-api/node_modules/@mikro-orm/postgresql/PostgreSqlExceptionConverter.js:24:24)
+    at PostgreSqlDriver.convertException (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/drivers/DatabaseDriver.js:182:54)
+    at /Users/gagetylee/callio-api/node_modules/@mikro-orm/core/drivers/DatabaseDriver.js:186:24
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at PostgreSqlDriver.nativeInsertMany (/Users/gagetylee/callio-api/node_modules/@mikro-orm/knex/AbstractSqlDriver.js:219:21)
+    at PostgreSqlDriver.updateCollectionDiff (/Users/gagetylee/callio-api/node_modules/@mikro-orm/knex/AbstractSqlDriver.js:579:13)
+    at UnitOfWork.persistToDatabase (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/unit-of-work/UnitOfWork.js:637:13)
+    at PostgreSqlConnection.transactional (/Users/gagetylee/callio-api/node_modules/@mikro-orm/knex/AbstractSqlConnection.js:36:25)
+    at UnitOfWork.doCommit (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/unit-of-work/UnitOfWork.js:259:17)
+    at UnitOfWork.commit (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/unit-of-work/UnitOfWork.js:235:13)
+
+previous error: insert into "project_member" ("project_id", "profile_id") values (21, 11) returning "project_id", "profile_id" - null value in column "is_admin" of relation "project_member" violates not-null constraint
+    at Parser.parseErrorMessage (/Users/gagetylee/callio-api/node_modules/pg-protocol/src/parser.ts:369:69)
+    at Parser.handlePacket (/Users/gagetylee/callio-api/node_modules/pg-protocol/src/parser.ts:188:21)
+    at Parser.parse (/Users/gagetylee/callio-api/node_modules/pg-protocol/src/parser.ts:103:30)
+    at Socket.<anonymous> (/Users/gagetylee/callio-api/node_modules/pg-protocol/src/index.ts:7:48)
+    at Socket.emit (node:events:390:28)
+    at addChunk (node:internal/streams/readable:324:12)
+    at readableAddChunk (node:internal/streams/readable:297:9)
+    at Socket.Readable.push (node:internal/streams/readable:234:10)
+    at TCP.onStreamRead (node:internal/stream_base_commons:199:23)
+    at TCP.callbackTrampoline (node:internal/async_hooks:130:17)
+2022-07-20 18:53:00 error: [POST] /api/v1/project >> StatusCode:: 409, Message:: Project name My other Project, already exists
+2022-07-20 21:44:10 error: [POST] /api/v1/project >> StatusCode:: 401, Message:: Authentication token missing
+2022-07-20 21:44:17 error: [GET] /api/v1/auth/login >> StatusCode:: 401, Message:: Invalid credentials
+2022-07-20 21:45:26 error: [POST] /api/v1/project >> StatusCode:: 409, Message:: Project name My oroject, already exists

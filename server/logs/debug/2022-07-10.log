@@ -1,0 +1,46 @@
+2022-07-10 10:27:35 error: [GET] /api/v1/user/33 >> StatusCode:: 404, Message:: User not found
+2022-07-10 10:29:59 error: [GET] /api/v1/project >> StatusCode:: 404, Message:: No projects found
+2022-07-10 11:11:24 error: [GET] /api/v1/project/1 >> StatusCode:: 500, Message:: Cannot read properties of undefined (reading 'projectService')
+2022-07-10 11:11:45 error: [GET] /api/v1/project/1 >> StatusCode:: 500, Message:: Cannot read properties of null (reading 'users')
+2022-07-10 11:16:41 error: [GET] /api/v1/project/7 >> StatusCode:: 500, Message:: Collection<User> of entity Project[7] not initialized
+2022-07-10 12:49:25 error: [GET] /api/v1/project >> StatusCode:: 404, Message:: No projects found
+2022-07-10 12:57:47 error: [GET] /api/v1/project >> StatusCode:: 404, Message:: No projects found
+2022-07-10 14:44:48 error: [POST] /api/v1/user >> StatusCode:: 400, Message:: Password must be at least 8 characters,password must be a string
+2022-07-10 14:45:16 error: [POST] /api/v1/user >> StatusCode:: 400, Message:: Password must be at least 8 characters
+2022-07-10 14:45:21 error: [POST] /api/v1/user >> StatusCode:: 409, Message:: Email is already in use
+2022-07-10 14:45:26 error: [POST] /api/v1/user >> StatusCode:: 500, Message:: data must be a string or Buffer and salt must either be a salt string or a number of rounds
+2022-07-10 14:45:57 error: [POST] /api/v1/user >> StatusCode:: 500, Message:: insert into "user" ("created_at", "email", "first_name", "last_name", "password", "updated_at") values ('2022-07-10T21:45:57.150Z', 'gagetylee2@gmail.com', 'Gage', 'Tylee', '$2b$10$rFmluJg2IyAjiuT1m0kV3ez6tRSgWklaj/C06jqcY6HL5x.HWJ/8C', '2022-07-10T21:45:57.150Z') returning "id" - column "password" of relation "user" does not exist
+2022-07-10 16:01:55 error: [GET] /api/v1/user/login >> StatusCode:: 500, Message:: select "u0".* from "user" as "u0" where "u0"."id" = NaN limit 1 - column "nan" does not exist
+2022-07-10 16:02:12 error: [GET] /api/v1/user/login >> StatusCode:: 500, Message:: select "u0".* from "user" as "u0" where "u0"."id" = NaN limit 1 - column "nan" does not exist
+2022-07-10 16:02:41 error: [GET] /api/v1/user/login >> StatusCode:: 500, Message:: select "u0".* from "user" as "u0" where "u0"."id" = NaN limit 1 - column "nan" does not exist
+2022-07-10 16:04:20 error: [GET] /api/v1/user/login >> StatusCode:: 500, Message:: select "u0".* from "user" as "u0" where "u0"."id" = NaN limit 1 - column "nan" does not exist
+2022-07-10 16:04:24 error: [GET] /api/v1/user/login >> StatusCode:: 500, Message:: select "u0".* from "user" as "u0" where "u0"."id" = NaN limit 1 - column "nan" does not exist
+2022-07-10 16:04:25 error: [GET] /api/v1/user/login >> StatusCode:: 500, Message:: select "u0".* from "user" as "u0" where "u0"."id" = NaN limit 1 - column "nan" does not exist
+2022-07-10 16:04:32 error: [GET] /api/v1/user/3 >> StatusCode:: 404, Message:: User not found
+2022-07-10 16:04:42 error: [GET] /api/v1/user/login >> StatusCode:: 500, Message:: select "u0".* from "user" as "u0" where "u0"."id" = NaN limit 1 - column "nan" does not exist
+2022-07-10 16:05:50 error: [GET] /api/v1/user/login >> StatusCode:: 500, Message:: select "u0".* from "user" as "u0" where "u0"."id" = NaN limit 1 - column "nan" does not exist
+2022-07-10 16:06:29 error: [GET] /api/v1/user/login >> StatusCode:: 500, Message:: select "u0".* from "user" as "u0" where "u0"."id" = NaN limit 1 - column "nan" does not exist
+2022-07-10 16:07:29 error: [GET] /api/v1/user/login >> StatusCode:: 500, Message:: select "u0".* from "user" as "u0" where "u0"."id" = NaN limit 1 - column "nan" does not exist
+2022-07-10 16:07:30 error: [GET] /api/v1/user/login >> StatusCode:: 500, Message:: select "u0".* from "user" as "u0" where "u0"."id" = NaN limit 1 - column "nan" does not exist
+2022-07-10 16:07:42 error: [GET] /api/v1/user/login >> StatusCode:: 500, Message:: select "u0".* from "user" as "u0" where "u0"."id" = NaN limit 1 - column "nan" does not exist
+2022-07-10 16:08:26 error: [GET] /api/v1/user/login >> StatusCode:: 500, Message:: select "u0".* from "user" as "u0" where "u0"."id" = NaN limit 1 - column "nan" does not exist
+2022-07-10 16:09:05 error: [GET] /api/v1/user/login >> StatusCode:: 500, Message:: select "u0".* from "user" as "u0" where "u0"."id" = NaN limit 1 - column "nan" does not exist
+2022-07-10 21:11:14 error: [GET] /api/v1/user/login >> StatusCode:: 500, Message:: select "u0".* from "user" as "u0" where "u0"."id" = NaN limit 1 - column "nan" does not exist
+2022-07-10 21:12:30 error: [GET] /api/v1/user/login >> StatusCode:: 500, Message:: select "u0".* from "user" as "u0" where "u0"."id" = NaN limit 1 - column "nan" does not exist
+2022-07-10 21:13:14 error: [GET] /api/v1/user/login >> StatusCode:: 500, Message:: select "u0".* from "user" as "u0" where "u0"."id" = NaN limit 1 - column "nan" does not exist
+2022-07-10 21:14:10 error: [GET] /api/v1/user/login >> StatusCode:: 500, Message:: select "u0".* from "user" as "u0" where "u0"."id" = NaN limit 1 - column "nan" does not exist
+2022-07-10 21:14:46 error: [GET] /api/v1/user/login >> StatusCode:: 500, Message:: select "u0".* from "user" as "u0" where "u0"."id" = NaN limit 1 - column "nan" does not exist
+2022-07-10 21:14:47 error: [GET] /api/v1/user/login >> StatusCode:: 500, Message:: select "u0".* from "user" as "u0" where "u0"."id" = NaN limit 1 - column "nan" does not exist
+2022-07-10 21:14:47 error: [GET] /api/v1/user/login >> StatusCode:: 500, Message:: select "u0".* from "user" as "u0" where "u0"."id" = NaN limit 1 - column "nan" does not exist
+2022-07-10 21:14:50 error: [GET] /api/v1/user/loginn >> StatusCode:: 500, Message:: select "u0".* from "user" as "u0" where "u0"."id" = NaN limit 1 - column "nan" does not exist
+2022-07-10 21:14:50 error: [GET] /api/v1/user/loginn >> StatusCode:: 500, Message:: select "u0".* from "user" as "u0" where "u0"."id" = NaN limit 1 - column "nan" does not exist
+2022-07-10 21:15:04 error: [GET] /api/v1/user/hi >> StatusCode:: 500, Message:: select "u0".* from "user" as "u0" where "u0"."id" = NaN limit 1 - column "nan" does not exist
+2022-07-10 21:22:52 error: [GET] /api/v1/user/login >> StatusCode:: 400, Message:: Invalid credentials
+2022-07-10 21:23:00 error: [GET] /api/v1/user/2 >> StatusCode:: 404, Message:: User not found
+2022-07-10 21:23:04 error: [GET] /api/v1/user/login >> StatusCode:: 400, Message:: Invalid credentials
+2022-07-10 21:23:06 error: [GET] /api/v1/user/loginn >> StatusCode:: 500, Message:: select "u0".* from "user" as "u0" where "u0"."id" = NaN limit 1 - column "nan" does not exist
+2022-07-10 21:23:09 error: [GET] /api/v1/user/login >> StatusCode:: 400, Message:: Invalid credentials
+2022-07-10 21:33:09 error: [GET] /api/v1/user/login >> StatusCode:: 400, Message:: Invalid credentials
+2022-07-10 21:33:21 error: [GET] /api/v1/user/login >> StatusCode:: 401, Message:: Invalid credentials
+2022-07-10 23:37:21 error: [POST] /api/v1/user >> StatusCode:: 500, Message:: select "u0".* from "user" as "u0" where "u0"."email" = 'gagetylee@gmail.com' limit 1 - relation "user" does not exist
+2022-07-10 23:39:27 error: [GET] /api/v1/user/login >> StatusCode:: 401, Message:: Invalid credentials

@@ -1,0 +1,288 @@
+2022-07-08 13:58:43 error: [GET] /api/v1/user >> StatusCode:: 500, Message:: DataSource is not set for this entity.
+2022-07-08 13:58:59 error: [GET] /api/v1/user >> StatusCode:: 500, Message:: DataSource is not set for this entity.
+2022-07-08 13:59:15 error: [GET] /api/v1/user >> StatusCode:: 500, Message:: DataSource is not set for this entity.
+2022-07-08 13:59:16 error: [GET] /api/v1/user >> StatusCode:: 500, Message:: DataSource is not set for this entity.
+2022-07-08 13:59:26 error: [GET] /api/v1/user >> StatusCode:: 500, Message:: DataSource is not set for this entity.
+2022-07-08 15:16:33 error: uncaughtException: Only abstract entities were discovered, maybe you forgot to use @Entity() decorator?
+MetadataError: Only abstract entities were discovered, maybe you forgot to use @Entity() decorator?
+    at Function.onlyAbstractEntitiesDiscovered (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/errors.js:154:16)
+    at MetadataValidator.validateDiscovered (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/metadata/MetadataValidator.js:46:42)
+    at MetadataDiscovery.findEntities (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/metadata/MetadataDiscovery.js:92:24)
+    at async MetadataDiscovery.discover (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/metadata/MetadataDiscovery.js:34:9)
+    at async MikroORM.discoverEntities (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/MikroORM.js:90:25)
+    at async Function.init (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/MikroORM.js:45:9)
+    at async main (/Users/gagetylee/callio-api/src/app.ts:16:15)
+2022-07-08 15:17:02 error: uncaughtException: Only abstract entities were discovered, maybe you forgot to use @Entity() decorator?
+MetadataError: Only abstract entities were discovered, maybe you forgot to use @Entity() decorator?
+    at Function.onlyAbstractEntitiesDiscovered (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/errors.js:154:16)
+    at MetadataValidator.validateDiscovered (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/metadata/MetadataValidator.js:46:42)
+    at MetadataDiscovery.findEntities (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/metadata/MetadataDiscovery.js:92:24)
+    at async MetadataDiscovery.discover (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/metadata/MetadataDiscovery.js:34:9)
+    at async MikroORM.discoverEntities (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/MikroORM.js:90:25)
+    at async Function.init (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/MikroORM.js:45:9)
+    at async main (/Users/gagetylee/callio-api/src/app.ts:16:15)
+2022-07-08 15:17:37 error: uncaughtException: Only abstract entities were discovered, maybe you forgot to use @Entity() decorator?
+MetadataError: Only abstract entities were discovered, maybe you forgot to use @Entity() decorator?
+    at Function.onlyAbstractEntitiesDiscovered (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/errors.js:154:16)
+    at MetadataValidator.validateDiscovered (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/metadata/MetadataValidator.js:46:42)
+    at MetadataDiscovery.findEntities (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/metadata/MetadataDiscovery.js:92:24)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async MetadataDiscovery.discover (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/metadata/MetadataDiscovery.js:34:9)
+    at async MikroORM.discoverEntities (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/MikroORM.js:90:25)
+    at async Function.init (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/MikroORM.js:45:9)
+    at async main (/Users/gagetylee/callio-api/src/app.ts:16:15)
+2022-07-08 15:17:50 error: uncaughtException: Only abstract entities were discovered, maybe you forgot to use @Entity() decorator?
+MetadataError: Only abstract entities were discovered, maybe you forgot to use @Entity() decorator?
+    at Function.onlyAbstractEntitiesDiscovered (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/errors.js:154:16)
+    at MetadataValidator.validateDiscovered (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/metadata/MetadataValidator.js:46:42)
+    at MetadataDiscovery.findEntities (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/metadata/MetadataDiscovery.js:92:24)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async MetadataDiscovery.discover (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/metadata/MetadataDiscovery.js:34:9)
+    at async MikroORM.discoverEntities (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/MikroORM.js:90:25)
+    at async Function.init (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/MikroORM.js:45:9)
+    at async main (/Users/gagetylee/callio-api/src/app.ts:16:15)
+2022-07-08 15:18:51 error: uncaughtException: Only abstract entities were discovered, maybe you forgot to use @Entity() decorator?
+MetadataError: Only abstract entities were discovered, maybe you forgot to use @Entity() decorator?
+    at Function.onlyAbstractEntitiesDiscovered (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/errors.js:154:16)
+    at MetadataValidator.validateDiscovered (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/metadata/MetadataValidator.js:46:42)
+    at MetadataDiscovery.findEntities (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/metadata/MetadataDiscovery.js:92:24)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async MetadataDiscovery.discover (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/metadata/MetadataDiscovery.js:34:9)
+    at async MikroORM.discoverEntities (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/MikroORM.js:90:25)
+    at async Function.init (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/MikroORM.js:45:9)
+    at async main (/Users/gagetylee/callio-api/src/app.ts:16:15)
+2022-07-08 15:20:26 error: uncaughtException: Only abstract entities were discovered, maybe you forgot to use @Entity() decorator?
+MetadataError: Only abstract entities were discovered, maybe you forgot to use @Entity() decorator?
+    at Function.onlyAbstractEntitiesDiscovered (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/errors.js:154:16)
+    at MetadataValidator.validateDiscovered (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/metadata/MetadataValidator.js:46:42)
+    at MetadataDiscovery.findEntities (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/metadata/MetadataDiscovery.js:92:24)
+    at async MetadataDiscovery.discover (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/metadata/MetadataDiscovery.js:34:9)
+    at async MikroORM.discoverEntities (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/MikroORM.js:90:25)
+    at async Function.init (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/MikroORM.js:45:9)
+    at async main (/Users/gagetylee/callio-api/src/app.ts:16:15)
+2022-07-08 16:47:12 error: uncaughtException: Unexpected token '?'
+/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/typings.js:54
+        this.root ?? (this.root = this);
+                   ^
+
+SyntaxError: Unexpected token '?'
+    at wrapSafe (internal/modules/cjs/loader.js:915:16)
+    at Module._compile (internal/modules/cjs/loader.js:963:27)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1027:10)
+    at Object.require.extensions.<computed> [as .js] (/Users/gagetylee/callio-api/node_modules/ts-node/src/index.ts:1587:43)
+    at Module.load (internal/modules/cjs/loader.js:863:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:708:14)
+    at Module.require (internal/modules/cjs/loader.js:887:19)
+    at require (internal/modules/cjs/helpers.js:74:18)
+    at Object.<anonymous> (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/index.js:23:17)
+    at Module._compile (internal/modules/cjs/loader.js:999:30)
+2022-07-08 16:48:13 error: uncaughtException: Unexpected token '?'
+/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/typings.js:54
+        this.root ?? (this.root = this);
+                   ^
+
+SyntaxError: Unexpected token '?'
+    at wrapSafe (internal/modules/cjs/loader.js:915:16)
+    at Module._compile (internal/modules/cjs/loader.js:963:27)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1027:10)
+    at Object.require.extensions.<computed> [as .js] (/Users/gagetylee/callio-api/node_modules/ts-node/src/index.ts:1587:43)
+    at Module.load (internal/modules/cjs/loader.js:863:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:708:14)
+    at Module.require (internal/modules/cjs/loader.js:887:19)
+    at require (internal/modules/cjs/helpers.js:74:18)
+    at Object.<anonymous> (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/index.js:23:17)
+    at Module._compile (internal/modules/cjs/loader.js:999:30)
+2022-07-08 16:49:19 error: uncaughtException: Unexpected token '?'
+/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/typings.js:54
+        this.root ?? (this.root = this);
+                   ^
+
+SyntaxError: Unexpected token '?'
+    at wrapSafe (internal/modules/cjs/loader.js:915:16)
+    at Module._compile (internal/modules/cjs/loader.js:963:27)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1027:10)
+    at Object.require.extensions.<computed> [as .js] (/Users/gagetylee/callio-api/node_modules/ts-node/src/index.ts:1587:43)
+    at Module.load (internal/modules/cjs/loader.js:863:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:708:14)
+    at Module.require (internal/modules/cjs/loader.js:887:19)
+    at require (internal/modules/cjs/helpers.js:74:18)
+    at Object.<anonymous> (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/index.js:23:17)
+    at Module._compile (internal/modules/cjs/loader.js:999:30)
+2022-07-08 16:49:29 error: uncaughtException: Unexpected token '?'
+/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/typings.js:54
+        this.root ?? (this.root = this);
+                   ^
+
+SyntaxError: Unexpected token '?'
+    at wrapSafe (internal/modules/cjs/loader.js:915:16)
+    at Module._compile (internal/modules/cjs/loader.js:963:27)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1027:10)
+    at Object.require.extensions.<computed> [as .js] (/Users/gagetylee/callio-api/node_modules/ts-node/src/index.ts:1587:43)
+    at Module.load (internal/modules/cjs/loader.js:863:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:708:14)
+    at Module.require (internal/modules/cjs/loader.js:887:19)
+    at require (internal/modules/cjs/helpers.js:74:18)
+    at Object.<anonymous> (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/index.js:23:17)
+    at Module._compile (internal/modules/cjs/loader.js:999:30)
+2022-07-08 16:49:37 error: uncaughtException: Unexpected token '?'
+/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/typings.js:54
+        this.root ?? (this.root = this);
+                   ^
+
+SyntaxError: Unexpected token '?'
+    at wrapSafe (internal/modules/cjs/loader.js:915:16)
+    at Module._compile (internal/modules/cjs/loader.js:963:27)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1027:10)
+    at Object.require.extensions.<computed> [as .js] (/Users/gagetylee/callio-api/node_modules/ts-node/src/index.ts:1587:43)
+    at Module.load (internal/modules/cjs/loader.js:863:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:708:14)
+    at Module.require (internal/modules/cjs/loader.js:887:19)
+    at require (internal/modules/cjs/helpers.js:74:18)
+    at Object.<anonymous> (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/index.js:23:17)
+    at Module._compile (internal/modules/cjs/loader.js:999:30)
+2022-07-08 16:50:12 error: uncaughtException: Unexpected token '?'
+/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/typings.js:54
+        this.root ?? (this.root = this);
+                   ^
+
+SyntaxError: Unexpected token '?'
+    at wrapSafe (internal/modules/cjs/loader.js:915:16)
+    at Module._compile (internal/modules/cjs/loader.js:963:27)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1027:10)
+    at Object.require.extensions.<computed> [as .js] (/Users/gagetylee/callio-api/node_modules/ts-node/src/index.ts:1587:43)
+    at Module.load (internal/modules/cjs/loader.js:863:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:708:14)
+    at Module.require (internal/modules/cjs/loader.js:887:19)
+    at require (internal/modules/cjs/helpers.js:74:18)
+    at Object.<anonymous> (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/index.js:23:17)
+    at Module._compile (internal/modules/cjs/loader.js:999:30)
+2022-07-08 16:50:29 error: uncaughtException: Unexpected token '?'
+/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/typings.js:54
+        this.root ?? (this.root = this);
+                   ^
+
+SyntaxError: Unexpected token '?'
+    at wrapSafe (internal/modules/cjs/loader.js:915:16)
+    at Module._compile (internal/modules/cjs/loader.js:963:27)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1027:10)
+    at Object.require.extensions.<computed> [as .js] (/Users/gagetylee/callio-api/node_modules/ts-node/src/index.ts:1587:43)
+    at Module.load (internal/modules/cjs/loader.js:863:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:708:14)
+    at Module.require (internal/modules/cjs/loader.js:887:19)
+    at require (internal/modules/cjs/helpers.js:74:18)
+    at Object.<anonymous> (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/index.js:23:17)
+    at Module._compile (internal/modules/cjs/loader.js:999:30)
+2022-07-08 16:57:03 error: uncaughtException: Unexpected token '?'
+/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/typings.js:54
+        this.root ?? (this.root = this);
+                   ^
+
+SyntaxError: Unexpected token '?'
+    at wrapSafe (internal/modules/cjs/loader.js:915:16)
+    at Module._compile (internal/modules/cjs/loader.js:963:27)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1027:10)
+    at Object.require.extensions.<computed> [as .js] (/Users/gagetylee/callio-api/node_modules/ts-node/src/index.ts:1587:43)
+    at Module.load (internal/modules/cjs/loader.js:863:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:708:14)
+    at Module.require (internal/modules/cjs/loader.js:887:19)
+    at require (internal/modules/cjs/helpers.js:74:18)
+    at Object.<anonymous> (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/index.js:23:17)
+    at Module._compile (internal/modules/cjs/loader.js:999:30)
+2022-07-08 16:58:54 error: uncaughtException: Unexpected token '?'
+/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/typings.js:54
+        this.root ?? (this.root = this);
+                   ^
+
+SyntaxError: Unexpected token '?'
+    at wrapSafe (internal/modules/cjs/loader.js:915:16)
+    at Module._compile (internal/modules/cjs/loader.js:963:27)
+    at Module._extensions..js (internal/modules/cjs/loader.js:1027:10)
+    at Object.require.extensions.<computed> [as .js] (/Users/gagetylee/callio-api/node_modules/ts-node/src/index.ts:1587:43)
+    at Module.load (internal/modules/cjs/loader.js:863:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:708:14)
+    at Module.require (internal/modules/cjs/loader.js:887:19)
+    at require (internal/modules/cjs/helpers.js:74:18)
+    at Object.<anonymous> (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/index.js:23:17)
+    at Module._compile (internal/modules/cjs/loader.js:999:30)
+2022-07-08 17:00:11 error: uncaughtException: No entities found, please use `entities` option
+Error: No entities found, please use `entities` option
+    at Configuration.validateOptions (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/utils/Configuration.js:185:19)
+    at new Configuration (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/utils/Configuration.js:24:18)
+    at new MikroORM (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/MikroORM.js:17:27)
+    at Function.init (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/MikroORM.js:40:21)
+    at async main (/Users/gagetylee/callio-api/src/app.ts:16:15)
+2022-07-08 17:02:26 error: uncaughtException: No entities found, please use `entities` option
+Error: No entities found, please use `entities` option
+    at Configuration.validateOptions (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/utils/Configuration.js:185:19)
+    at new Configuration (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/utils/Configuration.js:24:18)
+    at new MikroORM (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/MikroORM.js:17:27)
+    at Function.init (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/MikroORM.js:40:21)
+    at async main (/Users/gagetylee/callio-api/src/app.ts:16:15)
+2022-07-08 17:38:16 error: uncaughtException: No entities found, please use `entities` option
+Error: No entities found, please use `entities` option
+    at Configuration.validateOptions (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/utils/Configuration.js:185:19)
+    at new Configuration (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/utils/Configuration.js:24:18)
+    at new MikroORM (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/MikroORM.js:17:27)
+    at Function.init (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/MikroORM.js:40:21)
+    at async main (/Users/gagetylee/callio-api/src/app.ts:16:15)
+2022-07-08 18:23:00 error: [GET] /api/v1/user >> StatusCode:: 500, Message:: Cannot read properties of undefined (reading 'findAll')
+2022-07-08 18:23:05 error: [GET] /api/v1/user >> StatusCode:: 500, Message:: Cannot read properties of undefined (reading 'findAll')
+2022-07-08 18:24:38 error: [GET] /api/v1/user >> StatusCode:: 500, Message:: Cannot read properties of undefined (reading 'findAll')
+2022-07-08 18:37:47 error: [GET] /api/v1/user >> StatusCode:: 500, Message:: Cannot read properties of undefined (reading 'findAll')
+2022-07-08 18:38:09 error: [GET] /api/v1/user >> StatusCode:: 500, Message:: Cannot read properties of undefined (reading 'findAll')
+2022-07-08 18:38:38 error: [GET] /api/v1/user >> StatusCode:: 500, Message:: Cannot read properties of undefined (reading 'findAll')
+2022-07-08 18:38:39 error: [GET] /api/v1/user >> StatusCode:: 500, Message:: Cannot read properties of undefined (reading 'findAll')
+2022-07-08 18:38:54 error: [GET] /api/v1/user >> StatusCode:: 500, Message:: Cannot read properties of undefined (reading 'findAll')
+2022-07-08 18:38:54 error: [GET] /api/v1/user >> StatusCode:: 500, Message:: Cannot read properties of undefined (reading 'findAll')
+2022-07-08 18:39:14 error: [GET] /api/v1/user >> StatusCode:: 500, Message:: Cannot read properties of undefined (reading 'findAll')
+2022-07-08 19:35:31 error: [GET] /api/v1/user >> StatusCode:: 404, Message:: No users found
+2022-07-08 19:36:05 error: [GET] /api/v1/user >> StatusCode:: 404, Message:: No users found
+2022-07-08 19:36:06 error: [GET] /api/v1/user >> StatusCode:: 404, Message:: No users found
+2022-07-08 19:36:36 error: [GET] /api/v1/user >> StatusCode:: 404, Message:: No users found
+2022-07-08 19:36:37 error: [GET] /api/v1/user >> StatusCode:: 404, Message:: No users found
+2022-07-08 20:37:57 error: uncaughtException: listen EADDRINUSE: address already in use :::3001
+Error: listen EADDRINUSE: address already in use :::3001
+    at Server.setupListenHandle [as _listen2] (node:net:1334:16)
+    at listenInCluster (node:net:1382:12)
+    at Server.listen (node:net:1469:7)
+    at Function.listen (/Users/gagetylee/callio-api/node_modules/express/lib/application.js:635:24)
+    at main (/Users/gagetylee/callio-api/src/app.ts:49:7)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+2022-07-08 20:38:26 error: uncaughtException: listen EADDRINUSE: address already in use :::3001
+Error: listen EADDRINUSE: address already in use :::3001
+    at Server.setupListenHandle [as _listen2] (node:net:1334:16)
+    at listenInCluster (node:net:1382:12)
+    at Server.listen (node:net:1469:7)
+    at Function.listen (/Users/gagetylee/callio-api/node_modules/express/lib/application.js:635:24)
+    at main (/Users/gagetylee/callio-api/src/app.ts:49:7)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+2022-07-08 20:39:57 error: uncaughtException: listen EADDRINUSE: address already in use :::3001
+Error: listen EADDRINUSE: address already in use :::3001
+    at Server.setupListenHandle [as _listen2] (node:net:1334:16)
+    at listenInCluster (node:net:1382:12)
+    at Server.listen (node:net:1469:7)
+    at Function.listen (/Users/gagetylee/callio-api/node_modules/express/lib/application.js:635:24)
+    at main (/Users/gagetylee/callio-api/src/app.ts:49:7)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+2022-07-08 20:40:53 error: uncaughtException: listen EADDRINUSE: address already in use :::3001
+Error: listen EADDRINUSE: address already in use :::3001
+    at Server.setupListenHandle [as _listen2] (node:net:1334:16)
+    at listenInCluster (node:net:1382:12)
+    at Server.listen (node:net:1469:7)
+    at Function.listen (/Users/gagetylee/callio-api/node_modules/express/lib/application.js:635:24)
+    at main (/Users/gagetylee/callio-api/src/app.ts:49:7)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+2022-07-08 20:43:49 error: uncaughtException: listen EADDRINUSE: address already in use :::3001
+Error: listen EADDRINUSE: address already in use :::3001
+    at Server.setupListenHandle [as _listen2] (node:net:1334:16)
+    at listenInCluster (node:net:1382:12)
+    at Server.listen (node:net:1469:7)
+    at Function.listen (/Users/gagetylee/callio-api/node_modules/express/lib/application.js:635:24)
+    at main (/Users/gagetylee/callio-api/src/app.ts:49:7)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+2022-07-08 20:47:10 error: [GET] /api/v1/user >> StatusCode:: 404, Message:: No users found
+2022-07-08 20:47:11 error: [GET] /api/v1/user >> StatusCode:: 404, Message:: No users found
+2022-07-08 21:10:36 error: [GET] /api/v1/user >> StatusCode:: 404, Message:: No users found
+2022-07-08 21:13:15 error: [POST] /api/v1/user >> StatusCode:: 409, Message:: Email is already in use
+2022-07-08 21:14:25 error: [GET] /api/v1/user/37 >> StatusCode:: 404, Message:: User not found
+2022-07-08 21:27:23 error: [GET] /api/v1/user/37 >> StatusCode:: 404, Message:: User not found

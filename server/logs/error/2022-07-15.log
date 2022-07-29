@@ -1,0 +1,77 @@
+2022-07-15 21:22:16 error: uncaughtException: Service with "MaybeConstructable<ProfileService>" identifier was not found in the container. Register it before usage via explicitly calling the "Container.set" function or using the "@Service()" decorator.
+ServiceNotFoundError: Service with "MaybeConstructable<ProfileService>" identifier was not found in the container. Register it before usage via explicitly calling the "Container.set" function or using the "@Service()" decorator.
+    at ContainerInstance.get (/Users/gagetylee/callio-api/node_modules/src/container-instance.class.ts:75:11)
+    at /Users/gagetylee/callio-api/node_modules/src/container-instance.class.ts:334:21
+    at Array.map (<anonymous>)
+    at ContainerInstance.initializeParams (/Users/gagetylee/callio-api/node_modules/src/container-instance.class.ts:314:23)
+    at ContainerInstance.getServiceValue (/Users/gagetylee/callio-api/node_modules/src/container-instance.class.ts:277:27)
+    at ContainerInstance.get (/Users/gagetylee/callio-api/node_modules/src/container-instance.class.ts:54:36)
+    at Function.get (/Users/gagetylee/callio-api/node_modules/src/container.class.ts:61:32)
+    at new ProfileRoutes (/Users/gagetylee/callio-api/src/components/profile/profile.routes.ts:6:61)
+    at registerApiRoutes (/Users/gagetylee/callio-api/src/components/index.ts:9:35)
+    at main (/Users/gagetylee/callio-api/src/app.ts:31:20)
+2022-07-15 21:23:18 error: uncaughtException: this._em.getContext is not a function
+TypeError: this._em.getContext is not a function
+    at ProfileRepository.get em [as em] (/Users/gagetylee/callio-api/node_modules/@mikro-orm/knex/SqlEntityRepository.js:30:25)
+    at new ProfileRepository (/Users/gagetylee/callio-api/src/components/profile/profile.repository.ts:9:31)
+    at ContainerInstance.getServiceValue (/Users/gagetylee/callio-api/node_modules/src/container-instance.class.ts:284:15)
+    at ContainerInstance.get (/Users/gagetylee/callio-api/node_modules/src/container-instance.class.ts:54:36)
+    at Function.get (/Users/gagetylee/callio-api/node_modules/src/container.class.ts:61:32)
+    at new ProfileService (/Users/gagetylee/callio-api/src/components/profile/profile.service.ts:11:61)
+    at ContainerInstance.getServiceValue (/Users/gagetylee/callio-api/node_modules/src/container-instance.class.ts:284:15)
+    at ContainerInstance.get (/Users/gagetylee/callio-api/node_modules/src/container-instance.class.ts:54:36)
+    at /Users/gagetylee/callio-api/node_modules/src/container-instance.class.ts:334:21
+    at Array.map (<anonymous>)
+2022-07-15 21:23:27 error: uncaughtException: this._em.getContext is not a function
+TypeError: this._em.getContext is not a function
+    at ProfileRepository.get em [as em] (/Users/gagetylee/callio-api/node_modules/@mikro-orm/knex/SqlEntityRepository.js:30:25)
+    at new ProfileRepository (/Users/gagetylee/callio-api/src/components/profile/profile.repository.ts:9:31)
+    at ContainerInstance.getServiceValue (/Users/gagetylee/callio-api/node_modules/src/container-instance.class.ts:284:15)
+    at ContainerInstance.get (/Users/gagetylee/callio-api/node_modules/src/container-instance.class.ts:54:36)
+    at Function.get (/Users/gagetylee/callio-api/node_modules/src/container.class.ts:61:32)
+    at new ProfileService (/Users/gagetylee/callio-api/src/components/profile/profile.service.ts:11:61)
+    at ContainerInstance.getServiceValue (/Users/gagetylee/callio-api/node_modules/src/container-instance.class.ts:284:15)
+    at ContainerInstance.get (/Users/gagetylee/callio-api/node_modules/src/container-instance.class.ts:54:36)
+    at /Users/gagetylee/callio-api/node_modules/src/container-instance.class.ts:334:21
+    at Array.map (<anonymous>)
+2022-07-15 21:24:25 error: uncaughtException: this._em.getContext is not a function
+TypeError: this._em.getContext is not a function
+    at ProfileRepository.get em [as em] (/Users/gagetylee/callio-api/node_modules/@mikro-orm/knex/SqlEntityRepository.js:30:25)
+    at new ProfileRepository (/Users/gagetylee/callio-api/src/components/profile/profile.repository.ts:9:31)
+    at ContainerInstance.getServiceValue (/Users/gagetylee/callio-api/node_modules/src/container-instance.class.ts:284:15)
+    at ContainerInstance.get (/Users/gagetylee/callio-api/node_modules/src/container-instance.class.ts:54:36)
+    at Function.get (/Users/gagetylee/callio-api/node_modules/src/container.class.ts:61:32)
+    at new ProfileService (/Users/gagetylee/callio-api/src/components/profile/profile.service.ts:11:61)
+    at ContainerInstance.getServiceValue (/Users/gagetylee/callio-api/node_modules/src/container-instance.class.ts:284:15)
+    at ContainerInstance.get (/Users/gagetylee/callio-api/node_modules/src/container-instance.class.ts:54:36)
+    at /Users/gagetylee/callio-api/node_modules/src/container-instance.class.ts:334:21
+    at Array.map (<anonymous>)
+2022-07-15 21:26:56 error: uncaughtException: Service with "MaybeConstructable<ProfileRepository>" identifier was not found in the container. Register it before usage via explicitly calling the "Container.set" function or using the "@Service()" decorator.
+ServiceNotFoundError: Service with "MaybeConstructable<ProfileRepository>" identifier was not found in the container. Register it before usage via explicitly calling the "Container.set" function or using the "@Service()" decorator.
+    at ContainerInstance.get (/Users/gagetylee/callio-api/node_modules/src/container-instance.class.ts:75:11)
+    at Function.get (/Users/gagetylee/callio-api/node_modules/src/container.class.ts:61:32)
+    at new ProfileService (/Users/gagetylee/callio-api/src/components/profile/profile.service.ts:11:61)
+    at ContainerInstance.getServiceValue (/Users/gagetylee/callio-api/node_modules/src/container-instance.class.ts:284:15)
+    at ContainerInstance.get (/Users/gagetylee/callio-api/node_modules/src/container-instance.class.ts:54:36)
+    at /Users/gagetylee/callio-api/node_modules/src/container-instance.class.ts:334:21
+    at Array.map (<anonymous>)
+    at ContainerInstance.initializeParams (/Users/gagetylee/callio-api/node_modules/src/container-instance.class.ts:314:23)
+    at ContainerInstance.getServiceValue (/Users/gagetylee/callio-api/node_modules/src/container-instance.class.ts:277:27)
+    at ContainerInstance.get (/Users/gagetylee/callio-api/node_modules/src/container-instance.class.ts:54:36)
+2022-07-15 21:56:41 error: [GET] /api/v1/profile/search >> StatusCode:: 400, Message:: limit must be a number conforming to the specified constraints
+2022-07-15 21:57:15 error: [GET] /api/v1/profile/search >> StatusCode:: 500, Message:: Cannot read properties of undefined (reading 'profileService')
+2022-07-15 21:57:59 error: [GET] /api/v1/profile/search >> StatusCode:: 500, Message:: select "user"."username", "profile"."first_name" from "profile" where "user"."profile_id" = $1 and "user"."username" like $2 - missing FROM-clause entry for table "user"
+2022-07-15 22:00:55 error: [GET] /api/v1/profile/search >> StatusCode:: 500, Message:: select "user"."username", "profile"."first_name" from user, profile where "user"."profile_id" = $1 and "user"."username" like $2 - column user.username does not exist
+2022-07-15 22:03:20 error: [GET] /api/v1/profile/search >> StatusCode:: 500, Message:: select "user"."username", "profile"."first_name" from user, profile where "user"."profile_id" = $1 and "user"."username" like $2 - column user.username does not exist
+2022-07-15 22:05:08 error: [GET] /api/v1/profile/search >> StatusCode:: 404, Message:: No matching profiles found
+2022-07-15 22:05:21 error: [GET] /api/v1/profile/search >> StatusCode:: 500, Message:: select "username" from user where "user"."username" like $1 - column "username" does not exist
+2022-07-15 22:05:35 error: [GET] /api/v1/profile/search >> StatusCode:: 404, Message:: No matching profiles found
+2022-07-15 22:05:47 error: [GET] /api/v1/profile/search >> StatusCode:: 404, Message:: No matching profiles found
+2022-07-15 22:06:52 error: [GET] /api/v1/profile/search >> StatusCode:: 500, Message:: select "username" from "public".user as usr, profile where "usr"."profile_id" = $1 and "user"."username" like $2 - invalid reference to FROM-clause entry for table "user"
+2022-07-15 22:10:49 error: [GET] /api/v1/profile/search >> StatusCode:: 500, Message:: select "username" from "profile" where "user"."username" like $1 - column "username" does not exist
+2022-07-15 22:15:32 error: [GET] /api/v1/profile/search >> StatusCode:: 404, Message:: No matching profiles found
+2022-07-15 22:16:57 error: [GET] /api/v1/profile/search >> StatusCode:: 404, Message:: No matching profiles found
+2022-07-15 22:28:37 error: [GET] /api/v1/user/3 >> StatusCode:: 404, Message:: User not found
+2022-07-15 22:28:49 error: [GET] /api/v1/profile/search >> StatusCode:: 404, Message:: No matching profiles found
+2022-07-15 23:01:05 error: [GET] /api/v1/profile/search >> StatusCode:: 404, Message:: No matching profiles found
+2022-07-15 23:01:12 error: [GET] /api/v1/profile/search >> StatusCode:: 404, Message:: No matching profiles found
