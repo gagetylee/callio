@@ -1,0 +1,8 @@
+2022-07-20 18:35:19 error: [GET] /api/v1/project/17 >> StatusCode:: 404, Message:: Project not found
+2022-07-20 18:35:23 error: [GET] /api/v1/project >> StatusCode:: 404, Message:: No projects found
+2022-07-20 18:35:30 error: [POST] /api/v1/project >> StatusCode:: 401, Message:: Authentication token missing
+2022-07-20 18:35:34 error: [GET] /api/v1/auth/login >> StatusCode:: 401, Message:: Invalid credentials
+2022-07-20 18:53:00 error: [POST] /api/v1/project >> StatusCode:: 409, Message:: Project name My other Project, already exists
+2022-07-20 21:44:10 error: [POST] /api/v1/project >> StatusCode:: 401, Message:: Authentication token missing
+2022-07-20 21:44:17 error: [GET] /api/v1/auth/login >> StatusCode:: 401, Message:: Invalid credentials
+2022-07-20 21:45:26 error: [POST] /api/v1/project >> StatusCode:: 409, Message:: Project name My oroject, already exists

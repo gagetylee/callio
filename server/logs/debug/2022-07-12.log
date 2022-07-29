@@ -1,0 +1,7 @@
+2022-07-12 16:44:07 error: [GET] /api/v1/auth/login >> StatusCode:: 500, Message:: Cannot read properties of undefined (reading 'authService')
+2022-07-12 16:44:44 error: [GET] /api/v1/auth/login >> StatusCode:: 401, Message:: Invalid credentials
+2022-07-12 16:45:15 error: [GET] /api/v1/auth/login >> StatusCode:: 401, Message:: Invalid credentials
+2022-07-12 16:45:21 error: [GET] /api/v1/auth/login >> StatusCode:: 401, Message:: Invalid credentials
+2022-07-12 16:45:24 error: [GET] /api/v1/auth/login >> StatusCode:: 500, Message:: data and hash arguments required
+2022-07-12 16:45:30 error: [GET] /api/v1/auth/login >> StatusCode:: 401, Message:: Invalid credentials
+2022-07-12 18:07:23 error: [POST] /api/v1/user >> StatusCode:: 409, Message:: Email is already in use

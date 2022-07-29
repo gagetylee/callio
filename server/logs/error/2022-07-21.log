@@ -1,0 +1,149 @@
+2022-07-21 15:23:15 error: [PUT] /api/v1/project/24/invite >> StatusCode:: 500, Message:: Cannot read properties of undefined (reading 'profile')
+2022-07-21 15:24:27 error: [PUT] /api/v1/project/24/invite >> StatusCode:: 500, Message:: Cannot read properties of undefined (reading 'profile')
+2022-07-21 15:24:53 error: [PUT] /api/v1/project/24/invite >> StatusCode:: 500, Message:: Cannot read properties of undefined (reading 'profile')
+2022-07-21 15:25:07 error: [PUT] /api/v1/project/24/invite >> StatusCode:: 500, Message:: Cannot read properties of undefined (reading 'profile')
+2022-07-21 15:26:07 error: [PUT] /api/v1/project/24/invite >> StatusCode:: 500, Message:: Cannot read properties of undefined (reading 'profile')
+2022-07-21 15:28:08 error: [PUT] /api/v1/project/24/invite >> StatusCode:: 401, Message:: Authentication token missing
+2022-07-21 15:29:17 error: uncaughtException: select "p0".* from "project" as "p0" where "p0"."id" = NaN limit 1 - column "nan" does not exist
+InvalidFieldNameException: select "p0".* from "project" as "p0" where "p0"."id" = NaN limit 1 - column "nan" does not exist
+    at PostgreSqlExceptionConverter.convertException (/Users/gagetylee/callio-api/node_modules/@mikro-orm/postgresql/PostgreSqlExceptionConverter.js:36:24)
+    at PostgreSqlDriver.convertException (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/drivers/DatabaseDriver.js:182:54)
+    at /Users/gagetylee/callio-api/node_modules/@mikro-orm/core/drivers/DatabaseDriver.js:186:24
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at PostgreSqlDriver.find (/Users/gagetylee/callio-api/node_modules/@mikro-orm/knex/AbstractSqlDriver.js:46:24)
+    at PostgreSqlDriver.findOne (/Users/gagetylee/callio-api/node_modules/@mikro-orm/knex/AbstractSqlDriver.js:64:21)
+    at SqlEntityManager.findOne (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/EntityManager.js:295:22)
+    at ProjectService.inviteUser (/Users/gagetylee/callio-api/src/services/project.service.ts:59:30)
+
+previous error: select "p0".* from "project" as "p0" where "p0"."id" = NaN limit 1 - column "nan" does not exist
+    at Parser.parseErrorMessage (/Users/gagetylee/callio-api/node_modules/pg-protocol/src/parser.ts:369:69)
+    at Parser.handlePacket (/Users/gagetylee/callio-api/node_modules/pg-protocol/src/parser.ts:188:21)
+    at Parser.parse (/Users/gagetylee/callio-api/node_modules/pg-protocol/src/parser.ts:103:30)
+    at Socket.<anonymous> (/Users/gagetylee/callio-api/node_modules/pg-protocol/src/index.ts:7:48)
+    at Socket.emit (node:events:527:28)
+    at addChunk (node:internal/streams/readable:315:12)
+    at readableAddChunk (node:internal/streams/readable:289:9)
+    at Socket.Readable.push (node:internal/streams/readable:228:10)
+    at TCP.onStreamRead (node:internal/stream_base_commons:190:23)
+    at TCP.callbackTrampoline (node:internal/async_hooks:130:17)
+2022-07-21 15:31:40 error: uncaughtException: Collection<ProjectProfile> of entity Project[24] not initialized
+Error: Collection<ProjectProfile> of entity Project[24] not initialized
+    at Collection.checkInitialized (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/entity/Collection.js:289:19)
+    at Collection.getItems (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/entity/Collection.js:82:18)
+    at ProjectService.inviteUser (/Users/gagetylee/callio-api/src/services/project.service.ts:61:67)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+2022-07-21 15:32:07 error: uncaughtException: Collection<ProjectProfile> of entity Project[24] not initialized
+Error: Collection<ProjectProfile> of entity Project[24] not initialized
+    at Collection.checkInitialized (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/entity/Collection.js:289:19)
+    at Collection.getItems (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/entity/Collection.js:82:18)
+    at ProjectService.inviteUser (/Users/gagetylee/callio-api/src/services/project.service.ts:62:67)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+2022-07-21 15:32:34 error: uncaughtException: Collection<ProjectProfile> of entity Project[24] not initialized
+Error: Collection<ProjectProfile> of entity Project[24] not initialized
+    at Collection.checkInitialized (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/entity/Collection.js:289:19)
+    at Collection.getItems (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/entity/Collection.js:82:18)
+    at ProjectService.inviteUser (/Users/gagetylee/callio-api/src/services/project.service.ts:62:67)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+2022-07-21 16:29:24 error: [PUT] /api/v1/project/24/invite >> StatusCode:: 401, Message:: Authentication token missing
+2022-07-21 16:30:17 error: [PUT] /api/v1/project/24/invite >> StatusCode:: 401, Message:: Authentication token missing
+2022-07-21 16:30:21 error: [PUT] /api/v1/project/24/invite >> StatusCode:: 401, Message:: Authentication token missing
+2022-07-21 16:30:39 error: [PUT] /api/v1/project/24/invite >> StatusCode:: 401, Message:: Authentication token missing
+2022-07-21 16:31:00 error: [PUT] /api/v1/project/24/invite >> StatusCode:: 401, Message:: Authentication token missing
+2022-07-21 17:18:50 error: [PUT] /api/v1/project/24/invite >> StatusCode:: 400, Message:: User is already a member
+2022-07-21 17:19:27 error: [PUT] /api/v1/project/24/invite >> StatusCode:: 400, Message:: User is already a member
+2022-07-21 17:20:00 error: [PUT] /api/v1/project/24/invite >> StatusCode:: 400, Message:: User is already a member
+2022-07-21 17:20:43 error: [PUT] /api/v1/project/24/invite >> StatusCode:: 400, Message:: User is already a member
+2022-07-21 17:27:17 error: uncaughtException: Value for ProjectProfile.id is required, 'undefined' found
+entity: ProjectProfile {
+  project: Project {
+    id: 24,
+    name: 'My orojdect',
+    description: 'An awesome first project',
+    minimumUsers: 1,
+    maximumUsers: 2,
+    projectProfile: Collection<ProjectProfile> {
+      '0': [ProjectProfile],
+      '1': [ProjectProfile],
+      initialized: true,
+      dirty: false
+    }
+  },
+  profile: Profile {
+    id: 8,
+    firstName: 'John',
+    lastName: 'Cena',
+    bio: null,
+    location: null,
+    user: Ref<User> { id: 1, profile: [Profile] },
+    projectProfile: Collection<ProjectProfile> { initialized: false, dirty: false }
+  },
+  status: 'invited',
+  isAdmin: false
+}
+ValidationError: Value for ProjectProfile.id is required, 'undefined' found
+entity: ProjectProfile {
+  project: Project {
+    id: 24,
+    name: 'My orojdect',
+    description: 'An awesome first project',
+    minimumUsers: 1,
+    maximumUsers: 2,
+    projectProfile: Collection<ProjectProfile> {
+      '0': [ProjectProfile],
+      '1': [ProjectProfile],
+      initialized: true,
+      dirty: false
+    }
+  },
+  profile: Profile {
+    id: 8,
+    firstName: 'John',
+    lastName: 'Cena',
+    bio: null,
+    location: null,
+    user: Ref<User> { id: 1, profile: [Profile] },
+    projectProfile: Collection<ProjectProfile> { initialized: false, dirty: false }
+  },
+  status: 'invited',
+  isAdmin: false
+}
+    at Function.propertyRequired (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/errors.js:64:16)
+    at EntityValidator.validateRequired (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/entity/EntityValidator.js:46:48)
+    at ChangeSetPersister.processProperties (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/unit-of-work/ChangeSetPersister.js:77:28)
+    at /Users/gagetylee/callio-api/node_modules/@mikro-orm/core/unit-of-work/ChangeSetPersister.js:24:46
+    at Array.forEach (<anonymous>)
+    at ChangeSetPersister.executeInserts (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/unit-of-work/ChangeSetPersister.js:24:20)
+    at ChangeSetPersister.runForEachSchema (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/unit-of-work/ChangeSetPersister.js:68:31)
+    at ChangeSetPersister.executeInserts (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/unit-of-work/ChangeSetPersister.js:21:25)
+    at UnitOfWork.commitCreateChangeSets (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/unit-of-work/UnitOfWork.js:662:39)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+2022-07-21 17:29:33 error: [PUT] /api/v1/project/24/invite >> StatusCode:: 500, Message:: Value for ProjectProfile.id is required, 'undefined' found
+entity: ProjectProfile {
+  project: Project {
+    id: 24,
+    name: 'My orojdect',
+    description: 'An awesome first project',
+    minimumUsers: 1,
+    maximumUsers: 2,
+    projectProfile: Collection<ProjectProfile> {
+      '0': [ProjectProfile],
+      '1': [ProjectProfile],
+      initialized: true,
+      dirty: false
+    }
+  },
+  profile: Profile {
+    id: 8,
+    firstName: 'John',
+    lastName: 'Cena',
+    bio: null,
+    location: null,
+    user: Ref<User> { id: 1, profile: [Profile] },
+    projectProfile: Collection<ProjectProfile> { initialized: false, dirty: false }
+  },
+  status: 'invited',
+  isAdmin: false
+}
+2022-07-21 17:30:46 error: [PUT] /api/v1/project/24/invite >> StatusCode:: 500, Message:: insert into "project_profile" ("is_admin", "profile_id", "project_id", "status") values (false, 8, 24, 'invited') - null value in column "id" of relation "project_profile" violates not-null constraint
+2022-07-21 17:31:52 error: [PUT] /api/v1/project/24/invite >> StatusCode:: 401, Message:: Authentication token missing
+2022-07-21 17:35:24 error: [PUT] /api/v1/project/24/invite >> StatusCode:: 401, Message:: User is not authorized to send project invite

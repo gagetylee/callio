@@ -1,0 +1,7 @@
+2022-07-19 16:21:47 error: [POST] /api/v1/user >> StatusCode:: 400, Message:: Password must be at least 8 characters
+2022-07-19 16:29:18 error: [POST] /api/v1/user >> StatusCode:: 500, Message:: Value for Profile.user is required, 'undefined' found
+entity: Profile {
+  projects: Collection<Project> { initialized: true, dirty: false },
+  firstName: 'John',
+  lastName: 'Cena'
+}

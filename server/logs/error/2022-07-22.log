@@ -1,0 +1,72 @@
+2022-07-22 09:31:15 error: [GET] /api/v1/profile/invites >> StatusCode:: 500, Message:: Cannot read properties of undefined (reading 'profileService')
+2022-07-22 09:31:35 error: [GET] /api/v1/profile/invites >> StatusCode:: 500, Message:: Cannot read properties of undefined (reading 'matching')
+2022-07-22 09:33:08 error: [GET] /api/v1/profile/invites >> StatusCode:: 500, Message:: Cannot read properties of undefined (reading 'init')
+2022-07-22 09:34:04 error: [GET] /api/v1/profile/invites >> StatusCode:: 500, Message:: Cannot read properties of undefined (reading 'init')
+2022-07-22 09:34:18 error: [GET] /api/v1/profile/invites >> StatusCode:: 500, Message:: Cannot read properties of undefined (reading 'init')
+2022-07-22 09:37:45 error: [GET] /api/v1/profile/invites >> StatusCode:: 500, Message:: Cannot read properties of undefined (reading 'init')
+2022-07-22 09:41:01 error: [GET] /api/v1/profile/invites >> StatusCode:: 500, Message:: Cannot read properties of undefined (reading 'init')
+2022-07-22 09:45:33 error: [POST] /api/v1/project >> StatusCode:: 401, Message:: Authentication token missing
+2022-07-22 09:55:47 error: uncaughtException: Value for ProjectProfile.project is required, 'undefined' found
+entity: ProjectProfile {
+  project: undefined,
+  profile: Reference { entity: Ref<Profile> { id: 11, user: [User] } },
+  status: 'active',
+  isAdmin: true
+}
+ValidationError: Value for ProjectProfile.project is required, 'undefined' found
+entity: ProjectProfile {
+  project: undefined,
+  profile: Reference { entity: Ref<Profile> { id: 11, user: [User] } },
+  status: 'active',
+  isAdmin: true
+}
+    at Function.propertyRequired (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/errors.js:64:16)
+    at EntityValidator.validateRequired (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/entity/EntityValidator.js:46:48)
+    at ChangeSetPersister.processProperties (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/unit-of-work/ChangeSetPersister.js:77:28)
+    at /Users/gagetylee/callio-api/node_modules/@mikro-orm/core/unit-of-work/ChangeSetPersister.js:24:46
+    at Array.forEach (<anonymous>)
+    at ChangeSetPersister.executeInserts (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/unit-of-work/ChangeSetPersister.js:24:20)
+    at ChangeSetPersister.runForEachSchema (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/unit-of-work/ChangeSetPersister.js:68:31)
+    at ChangeSetPersister.executeInserts (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/unit-of-work/ChangeSetPersister.js:21:25)
+    at UnitOfWork.commitCreateChangeSets (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/unit-of-work/UnitOfWork.js:662:39)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+2022-07-22 09:56:31 error: uncaughtException: Value for ProjectProfile.project is required, 'undefined' found
+entity: ProjectProfile { project: undefined, profile: 11, status: 'active', isAdmin: true }
+ValidationError: Value for ProjectProfile.project is required, 'undefined' found
+entity: ProjectProfile { project: undefined, profile: 11, status: 'active', isAdmin: true }
+    at Function.propertyRequired (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/errors.js:64:16)
+    at EntityValidator.validateRequired (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/entity/EntityValidator.js:46:48)
+    at ChangeSetPersister.processProperties (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/unit-of-work/ChangeSetPersister.js:77:28)
+    at /Users/gagetylee/callio-api/node_modules/@mikro-orm/core/unit-of-work/ChangeSetPersister.js:24:46
+    at Array.forEach (<anonymous>)
+    at ChangeSetPersister.executeInserts (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/unit-of-work/ChangeSetPersister.js:24:20)
+    at ChangeSetPersister.runForEachSchema (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/unit-of-work/ChangeSetPersister.js:68:31)
+    at ChangeSetPersister.executeInserts (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/unit-of-work/ChangeSetPersister.js:21:25)
+    at UnitOfWork.commitCreateChangeSets (/Users/gagetylee/callio-api/node_modules/@mikro-orm/core/unit-of-work/UnitOfWork.js:662:39)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+2022-07-22 10:37:10 error: [GET] /api/v1/project >> StatusCode:: 404, Message:: No projects found
+2022-07-22 10:37:14 error: [POST] /api/v1/project >> StatusCode:: 401, Message:: Authentication token missing
+2022-07-22 10:40:49 error: [POST] /api/v1/project >> StatusCode:: 500, Message:: Entity Project is not managed. An entity is managed if its fetched from the database or registered as new through EntityManager.persist()
+2022-07-22 10:41:15 error: [POST] /api/v1/project >> StatusCode:: 500, Message:: Entity Project is not managed. An entity is managed if its fetched from the database or registered as new through EntityManager.persist()
+2022-07-22 11:54:46 error: [PUT] /api/v1/project/24/invite >> StatusCode:: 401, Message:: Authentication token missing
+2022-07-22 11:55:11 error: [PUT] /api/v1/project/24/invite >> StatusCode:: 500, Message:: Cannot read properties of null (reading 'projectProfile')
+2022-07-22 11:55:48 error: [PUT] /api/v1/project/24/invite >> StatusCode:: 500, Message:: Cannot read properties of null (reading 'projectProfile')
+2022-07-22 12:20:57 error: [PUT] /api/v1/project/24/invite >> StatusCode:: 500, Message:: Cannot read properties of null (reading 'projectProfile')
+2022-07-22 12:29:53 error: [PUT] /api/v1/project/24/invite >> StatusCode:: 500, Message:: Cannot read properties of null (reading 'projectProfile')
+2022-07-22 12:32:59 error: [PUT] /api/v1/project/30/invite >> StatusCode:: 500, Message:: Cannot read properties of null (reading 'projectProfile')
+2022-07-22 12:33:49 error: [PUT] /api/v1/project/2/invite >> StatusCode:: 404, Message:: Project not found
+2022-07-22 12:34:49 error: [PUT] /api/v1/project/20/invite >> StatusCode:: 404, Message:: Project not found
+2022-07-22 12:43:06 error: [PUT] /api/v1/project/30/invite >> StatusCode:: 404, Message:: User not found
+2022-07-22 13:13:49 error: [PUT] /api/v1/project/30/invite >> StatusCode:: 400, Message:: User is already a member
+2022-07-22 13:13:54 error: [PUT] /api/v1/project/30/invite >> StatusCode:: 400, Message:: User is already a member
+2022-07-22 13:13:57 error: [PUT] /api/v1/project/30/invite >> StatusCode:: 404, Message:: User not found
+2022-07-22 13:14:59 error: [PUT] /api/v1/project/30/invite >> StatusCode:: 400, Message:: User is already a member
+2022-07-22 13:19:58 error: [GET] /api/v1/profile/invites >> StatusCode:: 401, Message:: Authentication token missing
+2022-07-22 13:20:19 error: [GET] /api/v1/profile/invites >> StatusCode:: 500, Message:: Cannot read properties of undefined (reading 'init')
+2022-07-22 13:22:47 error: [GET] /api/v1/profile/invites >> StatusCode:: 500, Message:: Cannot read properties of undefined (reading 'init')
+2022-07-22 13:24:10 error: [GET] /api/v1/profile/invites >> StatusCode:: 500, Message:: Cannot read properties of undefined (reading 'loadItems')
+2022-07-22 13:28:30 error: [GET] /api/v1/profile/invites >> StatusCode:: 404, Message:: No invites found
+2022-07-22 13:42:15 error: [GET] /api/v1/profile/invites >> StatusCode:: 500, Message:: Cannot read properties of undefined (reading 'matching')
+2022-07-22 14:05:05 error: [GET] /api/v1/profile/invites >> StatusCode:: 401, Message:: Wrong authentication token
+2022-07-22 16:11:32 error: [GET] /api/v1/user >> StatusCode:: 404, Message:: No users found
+2022-07-22 18:03:14 error: [GET] /api/v1/user/1 >> StatusCode:: 404, Message:: User not found

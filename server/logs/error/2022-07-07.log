@@ -1,0 +1,70 @@
+2022-07-07 09:33:59 error: [POST] /api/v1/user >> StatusCode:: 500, Message:: Cannot read properties of undefined (reading 'userService')
+2022-07-07 09:57:08 error: [GET] /api/v1/user >> StatusCode:: 404, Message:: No users found
+2022-07-07 10:07:39 error: uncaughtException: Cannot read properties of undefined (reading 'firstName')
+TypeError: Cannot read properties of undefined (reading 'firstName')
+    at new User (/Users/gagetylee/callio-api/src/components/user/user.entity.ts:8:27)
+    at EntityMetadata.create (/Users/gagetylee/callio-api/node_modules/src/metadata/EntityMetadata.ts:563:23)
+    at EntityMetadataValidator.validate (/Users/gagetylee/callio-api/node_modules/src/metadata-builder/EntityMetadataValidator.ts:201:47)
+    at /Users/gagetylee/callio-api/node_modules/src/metadata-builder/EntityMetadataValidator.ts:43:18
+    at Array.forEach (<anonymous>)
+    at EntityMetadataValidator.validateMany (/Users/gagetylee/callio-api/node_modules/src/metadata-builder/EntityMetadataValidator.ts:42:25)
+    at DataSource.buildMetadatas (/Users/gagetylee/callio-api/node_modules/src/data-source/DataSource.ts:685:33)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async DataSource.initialize (/Users/gagetylee/callio-api/node_modules/src/data-source/DataSource.ts:242:13)
+    at async main (/Users/gagetylee/callio-api/src/app.ts:19:3)
+2022-07-07 10:08:22 error: uncaughtException: Cannot read properties of undefined (reading 'firstName')
+TypeError: Cannot read properties of undefined (reading 'firstName')
+    at new User (/Users/gagetylee/callio-api/src/components/user/user.entity.ts:8:27)
+    at EntityMetadata.create (/Users/gagetylee/callio-api/node_modules/src/metadata/EntityMetadata.ts:563:23)
+    at EntityMetadataValidator.validate (/Users/gagetylee/callio-api/node_modules/src/metadata-builder/EntityMetadataValidator.ts:201:47)
+    at /Users/gagetylee/callio-api/node_modules/src/metadata-builder/EntityMetadataValidator.ts:43:18
+    at Array.forEach (<anonymous>)
+    at EntityMetadataValidator.validateMany (/Users/gagetylee/callio-api/node_modules/src/metadata-builder/EntityMetadataValidator.ts:42:25)
+    at DataSource.buildMetadatas (/Users/gagetylee/callio-api/node_modules/src/data-source/DataSource.ts:685:33)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async DataSource.initialize (/Users/gagetylee/callio-api/node_modules/src/data-source/DataSource.ts:242:13)
+    at async main (/Users/gagetylee/callio-api/src/app.ts:19:3)
+2022-07-07 10:23:06 error: uncaughtException: could not create unique index "UQ_e12875dfb3b1d92d7d7c5377e22"
+QueryFailedError: could not create unique index "UQ_e12875dfb3b1d92d7d7c5377e22"
+    at PostgresQueryRunner.query (/Users/gagetylee/callio-api/node_modules/typeorm/src/driver/postgres/PostgresQueryRunner.ts:299:19)
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+    at async PostgresQueryRunner.executeQueries (/Users/gagetylee/callio-api/node_modules/src/query-runner/BaseQueryRunner.ts:650:13)
+    at async PostgresQueryRunner.changeColumn (/Users/gagetylee/callio-api/node_modules/typeorm/src/driver/postgres/PostgresQueryRunner.ts:2232:9)
+    at async PostgresQueryRunner.changeColumns (/Users/gagetylee/callio-api/node_modules/typeorm/src/driver/postgres/PostgresQueryRunner.ts:2244:13)
+    at async RdbmsSchemaBuilder.updateExistColumns (/Users/gagetylee/callio-api/node_modules/src/schema-builder/RdbmsSchemaBuilder.ts:867:13)
+    at async RdbmsSchemaBuilder.executeSchemaSyncOperationsInProperOrder (/Users/gagetylee/callio-api/node_modules/src/schema-builder/RdbmsSchemaBuilder.ts:221:9)
+    at async RdbmsSchemaBuilder.build (/Users/gagetylee/callio-api/node_modules/src/schema-builder/RdbmsSchemaBuilder.ts:91:13)
+    at async DataSource.synchronize (/Users/gagetylee/callio-api/node_modules/src/data-source/DataSource.ts:318:9)
+    at async DataSource.initialize (/Users/gagetylee/callio-api/node_modules/src/data-source/DataSource.ts:256:43)
+2022-07-07 10:23:35 error: [POST] /api/v1/user >> StatusCode:: 500, Message:: i dont know
+2022-07-07 11:27:56 error: [POST] /api/v1/user >> StatusCode:: 409, Message:: Email is already in use
+2022-07-07 11:27:58 error: [POST] /api/v1/user >> StatusCode:: 409, Message:: Email is already in use
+2022-07-07 11:27:59 error: [POST] /api/v1/user >> StatusCode:: 409, Message:: Email is already in use
+2022-07-07 11:28:05 error: [POST] /api/v1/user >> StatusCode:: 409, Message:: Email is already in use
+2022-07-07 11:28:27 error: [POST] /api/v1/user >> StatusCode:: 409, Message:: Email is already in use
+2022-07-07 11:29:07 error: [POST] /api/v1/user >> StatusCode:: 409, Message:: Email is already in use
+2022-07-07 11:29:54 error: [POST] /api/v1/user >> StatusCode:: 409, Message:: Email is already in use
+2022-07-07 11:30:25 error: [POST] /api/v1/user >> StatusCode:: 409, Message:: Email is already in use
+2022-07-07 11:30:58 error: [POST] /api/v1/user >> StatusCode:: 409, Message:: Email is already in use
+2022-07-07 11:31:16 error: [POST] /api/v1/user >> StatusCode:: 409, Message:: Email is already in use
+2022-07-07 19:38:27 error: [GET] /api/v1/user >> StatusCode:: 500, Message:: DataSource is not set for this entity.
+2022-07-07 19:39:27 error: [GET] /api/v1/user >> StatusCode:: 500, Message:: DataSource is not set for this entity.
+2022-07-07 19:42:12 error: [GET] /api/v1/user >> StatusCode:: 500, Message:: DataSource is not set for this entity.
+2022-07-07 19:42:13 error: [GET] /api/v1/user >> StatusCode:: 500, Message:: DataSource is not set for this entity.
+2022-07-07 19:42:14 error: [GET] /api/v1/user >> StatusCode:: 500, Message:: DataSource is not set for this entity.
+2022-07-07 19:44:58 error: [GET] /api/v1/user >> StatusCode:: 500, Message:: DataSource is not set for this entity.
+2022-07-07 19:45:01 error: [GET] /api/v1/user >> StatusCode:: 500, Message:: DataSource is not set for this entity.
+2022-07-07 19:45:23 error: [GET] /api/v1/user >> StatusCode:: 500, Message:: DataSource is not set for this entity.
+2022-07-07 19:45:39 error: [GET] /api/v1/user >> StatusCode:: 500, Message:: DataSource is not set for this entity.
+2022-07-07 19:56:53 error: [GET] /api/v1/user >> StatusCode:: 500, Message:: DataSource is not set for this entity.
+2022-07-07 21:40:09 error: [GET] /api/v1/user >> StatusCode:: 500, Message:: column User.createdAt does not exist
+2022-07-07 21:41:16 error: [POST] /api/v1/user >> StatusCode:: 500, Message:: column User.createdAt does not exist
+2022-07-07 21:42:06 error: [GET] /api/v1/user >> StatusCode:: 500, Message:: column User.createdAt does not exist
+2022-07-07 21:42:07 error: [GET] /api/v1/user >> StatusCode:: 500, Message:: column User.createdAt does not exist
+2022-07-07 21:42:08 error: [GET] /api/v1/user >> StatusCode:: 500, Message:: column User.createdAt does not exist
+2022-07-07 21:42:57 error: [GET] /api/v1/user >> StatusCode:: 404, Message:: No users found
+2022-07-07 21:46:16 error: [GET] /api/v1/user >> StatusCode:: 404, Message:: No users found
+2022-07-07 21:46:17 error: [GET] /api/v1/user >> StatusCode:: 404, Message:: No users found
+2022-07-07 21:48:53 error: [GET] /api/v1/user/32 >> StatusCode:: 500, Message:: Cannot read property 'userService' of undefined
+2022-07-07 21:49:02 error: [GET] /api/v1/user/32 >> StatusCode:: 500, Message:: Cannot read property 'userService' of undefined
+2022-07-07 21:49:54 error: [GET] /api/v1/user/31 >> StatusCode:: 404, Message:: User not found

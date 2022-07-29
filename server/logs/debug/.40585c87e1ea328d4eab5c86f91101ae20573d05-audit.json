@@ -1,0 +1,110 @@
+{
+    "keep": {
+        "days": false,
+        "amount": 30
+    },
+    "auditLog": "/Users/gagetylee/callio-api/logs/debug/.40585c87e1ea328d4eab5c86f91101ae20573d05-audit.json",
+    "files": [
+        {
+            "date": 1657172522626,
+            "name": "/Users/gagetylee/callio-api/logs/debug/2022-07-06.log",
+            "hash": "a698d682794032549e5ea012175c5980ad9c200685fc9a776f641c50cbc596bd"
+        },
+        {
+            "date": 1657211563700,
+            "name": "/Users/gagetylee/callio-api/logs/debug/2022-07-07.log",
+            "hash": "711c55035f666e054fd93f6f71bafea001e7dd25fff7134f5529ba9a2cb3e049"
+        },
+        {
+            "date": 1657313607696,
+            "name": "/Users/gagetylee/callio-api/logs/debug/2022-07-08.log",
+            "hash": "7794f6ce3d9157f6de41e3031516c53203cd3ceec8a203f4d6d8c934b083fdaf"
+        },
+        {
+            "date": 1657393892666,
+            "name": "/Users/gagetylee/callio-api/logs/debug/2022-07-09.log",
+            "hash": "0c1b4dbfc5396a552512e0c1ca501913d3035579c69f202fb19a598bf387282a"
+        },
+        {
+            "date": 1657473624892,
+            "name": "/Users/gagetylee/callio-api/logs/debug/2022-07-10.log",
+            "hash": "295a0416f91573875eb8d98ac9063982ca8a943fe22a4b29bcbe38969c028cf6"
+        },
+        {
+            "date": 1657587122177,
+            "name": "/Users/gagetylee/callio-api/logs/debug/2022-07-11.log",
+            "hash": "afef72d0e3679a45f84f95fac89303c74eb2bff81ae7fd6b7bfcd134d0d719e6"
+        },
+        {
+            "date": 1657669442227,
+            "name": "/Users/gagetylee/callio-api/logs/debug/2022-07-12.log",
+            "hash": "148e0455e9144740dd349b43b7de00cdf844e9f75d6e0e2e88d3ab445f1e07f3"
+        },
+        {
+            "date": 1657725408838,
+            "name": "/Users/gagetylee/callio-api/logs/debug/2022-07-13.log",
+            "hash": "9f18beba52c8262ad99fc47edca1b1a7519f6d3c0af1da544094b5b9f63d13bc"
+        },
+        {
+            "date": 1657945336008,
+            "name": "/Users/gagetylee/callio-api/logs/debug/2022-07-15.log",
+            "hash": "91279a325044c11aaade284d83c535a2e7ed0735a69bf3a643e62e56b80e89ee"
+        },
+        {
+            "date": 1657989932044,
+            "name": "/Users/gagetylee/callio-api/logs/debug/2022-07-16.log",
+            "hash": "717aead8584e00701e3800df21b78b0acd989bee22982d0dda1499dc6947d936"
+        },
+        {
+            "date": 1658082816486,
+            "name": "/Users/gagetylee/callio-api/logs/debug/2022-07-17.log",
+            "hash": "7db97332fb7ab4ba723fecde344382ae8674fe15660ce4c82fa7a266cdf84a8c"
+        },
+        {
+            "date": 1658191959604,
+            "name": "/Users/gagetylee/callio-api/logs/debug/2022-07-18.log",
+            "hash": "d1fec3324829a2b99fa6a1fae16fe5c5255045baf6dd005fb902e83cc29e3509"
+        },
+        {
+            "date": 1658272843809,
+            "name": "/Users/gagetylee/callio-api/logs/debug/2022-07-19.log",
+            "hash": "8fcc26722037417abbd6a272b4e59c0b3fab1f03e10292cb21354e94d72cc3db"
+        },
+        {
+            "date": 1658332326290,
+            "name": "/Users/gagetylee/callio-api/logs/debug/2022-07-20.log",
+            "hash": "011f2aa14caa7b44d61d52c0abd82583b0cd3d6bd038a0134dc4224942bbd129"
+        },
+        {
+            "date": 1658442149777,
+            "name": "/Users/gagetylee/callio-api/logs/debug/2022-07-21.log",
+            "hash": "e4d1e55a64107ddff044f67d8617b2052092c47fd05db6a6465fdee74c7cacd2"
+        },
+        {
+            "date": 1658507390963,
+            "name": "/Users/gagetylee/callio-api/logs/debug/2022-07-22.log",
+            "hash": "38e46a09e7a8626c448f667c134445aa3fad120cc401d97e6d3cdf990bcadb4c"
+        },
+        {
+            "date": 1658805073100,
+            "name": "/Users/gagetylee/callio-api/logs/debug/2022-07-25.log",
+            "hash": "8363aaf1c1f62cf68324cef708c55caea4c54c068bcc758a0f2e4104680477c6"
+        },
+        {
+            "date": 1658876328465,
+            "name": "/Users/gagetylee/callio-api/logs/debug/2022-07-26.log",
+            "hash": "82d8330059ed2dd7819a3848d0d8079abd28c2bcb5f8d4e44c3ce24ce1c98ae0"
+        },
+        {
+            "date": 1658978018578,
+            "name": "/Users/gagetylee/callio-api/logs/debug/2022-07-27.log",
+            "hash": "56b580596a8a4faa5a6bd6f4bd884e5095656f5d5885defc120106941e8760d3"
+        },
+        {
+            "date": 1659059994906,
+            "name": "/Users/gagetylee/callio-api/logs/debug/2022-07-28.log",
+            "hash": "41e9cc4decc81cfe35bcb57736ded9f9d8818636055df2a883037b693b6b286e"
+        }
+    ],
+    "hashType": "sha256"
+}

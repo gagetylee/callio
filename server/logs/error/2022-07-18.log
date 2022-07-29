@@ -1,0 +1,88 @@
+2022-07-18 17:53:05 error: [GET] /api/v1/project/18 >> StatusCode:: 500, Message:: select "project"."id", "project"."name", "array_to_json(array_agg(profile"."*))" as "profiles" from "project" inner join "project_member pm" on "project"."id" = "pm"."project_id" inner join "profile" on "pm"."profile_id" = "profile"."id" where "project"."id" = $1 - relation "project_member pm" does not exist
+2022-07-18 17:54:03 error: [GET] /api/v1/project/18 >> StatusCode:: 500, Message:: select "project"."id", "project"."name", "array_to_json(array_agg(profile"."*))" as "profiles" from "project" inner join "project_member" as "pm" on "project"."id" = "pm"."project_id" inner join "profile" on "pm"."profile_id" = "profile"."id" where "project"."id" = $1 - missing FROM-clause entry for table "array_to_json(array_agg(profile"
+2022-07-18 18:23:46 error: [GET] /api/v1/project/18 >> StatusCode:: 500, Message:: Metadata for entity ProjectRepository not found
+2022-07-18 19:15:47 error: [GET] /api/v1/project/18 >> StatusCode:: 500, Message:: select "project"."id", "project"."name", "arr_agg(profile"."first_name)" as "profiles" from "project" inner join "project_member" as "pm" on "project"."id" = "pm"."project_id" inner join "profile" on "pm"."profile_id" = "profile"."id" where "project"."id" = $1 - missing FROM-clause entry for table "arr_agg(profile"
+2022-07-18 19:16:25 error: [GET] /api/v1/project/18 >> StatusCode:: 500, Message:: select "project"."id", "project"."name", "array_agg(profile"."first_name)" as "profiles" from "project" inner join "project_member" as "pm" on "project"."id" = "pm"."project_id" inner join "profile" on "pm"."profile_id" = "profile"."id" where "project"."id" = $1 - missing FROM-clause entry for table "array_agg(profile"
+2022-07-18 19:31:07 error: [GET] /api/v1/project/18 >> StatusCode:: 500, Message:: select "project"."id", "project"."name", array_agg(profile.first_name) as profiles from "project" inner join "project_member" as "pm" on "project"."id" = "pm"."project_id" inner join "profile" on "pm"."profile_id" = "profile"."id" where "project"."id" = $1 - column "project.id" must appear in the GROUP BY clause or be used in an aggregate function
+2022-07-18 19:32:26 error: [GET] /api/v1/project/17 >> StatusCode:: 500, Message:: select "project"."id", "project"."name", array_json(array_agg(profile.*)) as profiles from "project" inner join "project_member" as "pm" on "project"."id" = "pm"."project_id" inner join "profile" on "pm"."profile_id" = "profile"."id" where "project"."id" = $1 group by "project"."id" - function array_json(profile[]) does not exist
+2022-07-18 19:33:37 error: [GET] /api/v1/project/17 >> StatusCode:: 500, Message:: select "project"."id", "project"."name", array_to_json(array_agg(profile.first_name, profile.last_name)) as profiles from "project" inner join "project_member" as "pm" on "project"."id" = "pm"."project_id" inner join "profile" on "pm"."profile_id" = "profile"."id" where "project"."id" = $1 group by "project"."id" - function array_agg(character varying, character varying) does not exist
+2022-07-18 19:37:05 error: [GET] /api/v1/project/17 >> StatusCode:: 500, Message:: select "project"."id", "project"."name", array_to_json(array_agg(profile.first_name, last_name)) as profiles from "project" inner join "project_member" as "pm" on "project"."id" = "pm"."project_id" inner join "profile" on "pm"."profile_id" = "profile"."id" where "project"."id" = $1 group by "project"."id" - function array_agg(character varying, character varying) does not exist
+2022-07-18 19:49:46 error: [GET] /api/v1/project/17 >> StatusCode:: 500, Message:: with "profile_interface" as (select "p"."id", "p"."first_name", "p"."last_name" from "profile p") select "project"."id", "project"."name", array_to_json(array_agg(p.*)) as profiles from "project" inner join "project_member" as "pm" on "project"."id" = "pm"."project_id" inner join "profile_interface p" on "pm"."profile_id" = "p"."id" where "project"."id" = $1 group by "project"."id" - relation "profile p" does not exist
+2022-07-18 19:51:15 error: [GET] /api/v1/project/17 >> StatusCode:: 500, Message:: with "profile_interface" as (select "p"."id", "u"."username", "p"."first_name", "p"."last_name" from "profile" as "p" inner join "user" as "u" on "p"."user" = "user"."id") select "project"."id", "project"."name", array_to_json(array_agg(p.*)) as profiles from "project" inner join "project_member" as "pm" on "project"."id" = "pm"."project_id" inner join "profile_interface" as "p" on "pm"."profile_id" = "p"."id" where "project"."id" = $1 group by "project"."id" - column p.user does not exist
+2022-07-18 20:03:11 error: [GET] /api/v1/project/17 >> StatusCode:: 500, Message:: with "profile_interface" as (select "p"."id", "p"."first_name", "p"."last_name" from "profile" as "p" inner join "user" as "u" on "p"."user" = "user"."id") select "project"."id", "project"."name", array_to_json(array_agg(p.*)) as profiles from "project" inner join "project_member" as "pm" on "project"."id" = "pm"."project_id" inner join "profile_interface" as "p" on "pm"."profile_id" = "p"."id" where "project"."id" = $1 group by "project"."id" - column p.user does not exist
+2022-07-18 20:52:56 error: [GET] /api/v1/project/17 >> StatusCode:: 500, Message:: with "profile_interface" as (select "p"."id", "p"."first_name", "p"."last_name" from "profile" as "p") select "project"."id", "project"."name", json_agg(
+          json_build_object(
+            id, p.id,
+            'firstName', p.first_name,
+            'lastName', p.last_name,
+            'isAdmin', pm.is_admin
+          )
+        ) from "project" inner join "project_member" as "pm" on "project"."id" = "pm"."project_id" inner join "profile_interface" as "p" on "pm"."profile_id" = "p"."id" where "project"."id" = $1 group by "project"."id" - column reference "id" is ambiguous
+2022-07-18 20:53:09 error: [GET] /api/v1/project/17 >> StatusCode:: 500, Message:: with "profile_interface" as (select "p"."id", "p"."first_name", "p"."last_name" from "profile" as "p") select "project"."id", "project"."name", json_agg(
+          json_build_object(
+            id, p.id,
+            firstName, p.first_name,
+            lastName, p.last_name,
+            isAdmin, pm.is_admin
+          )
+        ) from "project" inner join "project_member" as "pm" on "project"."id" = "pm"."project_id" inner join "profile_interface" as "p" on "pm"."profile_id" = "p"."id" where "project"."id" = $1 group by "project"."id" - column reference "id" is ambiguous
+2022-07-18 20:57:08 error: [GET] /api/v1/project/17 >> StatusCode:: 500, Message:: with "profile_interface" as (select "p"."id", "p"."first_name", "p"."last_name" from "profile" as "p") select "project"."id", "project"."name", 
+        json_agg(
+          json_build_object(
+            'id', p.id,
+            'firstName', p.firstName,
+            'lastName', p.lastName,
+            'isAdmin', pm.isAdmin
+          )
+        ) as profiles
+       from "project" inner join "project_member" as "pm" on "project"."id" = "pm"."project_id" inner join "profile_interface" as "p" on "pm"."profile_id" = "p"."id" where "project"."id" = $1 group by "project"."id" - column p.firstname does not exist
+2022-07-18 20:57:21 error: [GET] /api/v1/project/17 >> StatusCode:: 500, Message:: with "profile_interface" as (select "p"."id", "p"."first_name", "p"."last_name" from "profile" as "p") select "project"."id", "project"."name", 
+        json_agg(
+          json_build_object(
+            'id', p.id,
+            'firstName', p.firstName,
+            'lastName', p.lastName,
+          )
+        ) as profiles
+       from "project" inner join "project_member" as "pm" on "project"."id" = "pm"."project_id" inner join "profile_interface" as "p" on "pm"."profile_id" = "p"."id" where "project"."id" = $1 group by "project"."id" - syntax error at or near ")"
+2022-07-18 20:57:22 error: [GET] /api/v1/project/17 >> StatusCode:: 500, Message:: with "profile_interface" as (select "p"."id", "p"."first_name", "p"."last_name" from "profile" as "p") select "project"."id", "project"."name", 
+        json_agg(
+          json_build_object(
+            'id', p.id,
+            'firstName', p.firstName,
+            'lastName', p.lastName,
+          )
+        ) as profiles
+       from "project" inner join "project_member" as "pm" on "project"."id" = "pm"."project_id" inner join "profile_interface" as "p" on "pm"."profile_id" = "p"."id" where "project"."id" = $1 group by "project"."id" - syntax error at or near ")"
+2022-07-18 20:57:28 error: [GET] /api/v1/project/17 >> StatusCode:: 500, Message:: with "profile_interface" as (select "p"."id", "p"."first_name", "p"."last_name" from "profile" as "p") select "project"."id", "project"."name", 
+        json_agg(
+          json_build_object(
+            'id', p.id,
+            'firstName', p.firstName,
+            'lastName', p.lastName
+          )
+        ) as profiles
+       from "project" inner join "project_member" as "pm" on "project"."id" = "pm"."project_id" inner join "profile_interface" as "p" on "pm"."profile_id" = "p"."id" where "project"."id" = $1 group by "project"."id" - column p.firstname does not exist
+2022-07-18 21:00:01 error: [GET] /api/v1/project/17 >> StatusCode:: 500, Message:: with "profile_interface" as (select "p"."id", "p"."first_name", "p"."last_name" from "profile" as "p") select "project"."id", "project"."name", 
+        json_agg(
+          json_build_object(
+            'profile', json_build_object(
+              'id', p.id,
+              'firstName', p.first_name,
+              'lastName', p.last_name,
+            )
+          )
+        ) as profiles
+       from "project" inner join "project_member" as "pm" on "project"."id" = "pm"."project_id" inner join "profile_interface" as "p" on "pm"."profile_id" = "p"."id" where "project"."id" = $1 group by "project"."id" - syntax error at or near ")"
+2022-07-18 21:01:02 error: [GET] /api/v1/project/17 >> StatusCode:: 500, Message:: with "profile_interface" as (select "p"."id", "p"."first_name", "p"."last_name" from "profile" as "p") select "project"."id", "project"."name", 
+        json_agg(
+          json_build_object(
+            'profile', json_build_object(
+              'id', p.id,
+              'firstName', p.first_name,
+              'lastName', p.last_name
+            ),
+            'isAdmin': pm.is_admin
+          )
+        ) as profiles
+       from "project" inner join "project_member" as "pm" on "project"."id" = "pm"."project_id" inner join "profile_interface" as "p" on "pm"."profile_id" = "p"."id" where "project"."id" = $1 group by "project"."id" - syntax error at or near ":"

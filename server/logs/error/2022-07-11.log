@@ -1,0 +1,47 @@
+2022-07-11 18:01:03 error: [GET] /api/v1/user/login >> StatusCode:: 401, Message:: Invalid credentials
+2022-07-11 18:04:28 error: [GET] /api/v1/user/login >> StatusCode:: 401, Message:: Invalid credentials
+2022-07-11 18:05:28 error: [GET] /api/v1/user/login >> StatusCode:: 400, Message:: property hello should not exist
+2022-07-11 20:02:46 error: [PUT] /api/v1/user/35 >> StatusCode:: 500, Message:: Cannot read properties of undefined (reading 'Authorization')
+2022-07-11 20:03:11 error: [PUT] /api/v1/user/35 >> StatusCode:: 500, Message:: Cannot read properties of undefined (reading 'Authorization')
+2022-07-11 20:03:24 error: [PUT] /api/v1/user/35 >> StatusCode:: 500, Message:: Cannot read properties of undefined (reading 'Authorization')
+2022-07-11 20:04:32 error: [PUT] /api/v1/user/35 >> StatusCode:: 500, Message:: Cannot read properties of undefined (reading 'Authorization')
+2022-07-11 20:04:38 error: [PUT] /api/v1/user/35 >> StatusCode:: 500, Message:: Cannot read properties of undefined (reading 'Authorization')
+2022-07-11 20:04:58 error: [PUT] /api/v1/user/35 >> StatusCode:: 500, Message:: Cannot read properties of undefined (reading 'Authorization')
+2022-07-11 20:05:13 error: [PUT] /api/v1/user/35 >> StatusCode:: 500, Message:: Cannot read properties of undefined (reading 'Authorization')
+2022-07-11 20:05:27 error: [PUT] /api/v1/user/35 >> StatusCode:: 500, Message:: Cannot read properties of undefined (reading 'Authorization')
+2022-07-11 20:06:21 error: uncaughtException: write EPIPE
+Error: write EPIPE
+    at process.target._send (node:internal/child_process:844:20)
+    at process.target.send (node:internal/child_process:717:19)
+    at Object.exports.send (/Users/gagetylee/callio-api/node_modules/ts-node-dev/lib/ipc.js:17:14)
+    at /Users/gagetylee/callio-api/node_modules/ts-node-dev/lib/wrap.js:88:9
+    at Object.nodeDevHook [as .js] (/Users/gagetylee/callio-api/node_modules/ts-node-dev/lib/hook.js:61:17)
+    at Module.load (node:internal/modules/cjs/loader:975:32)
+    at Function.Module._load (node:internal/modules/cjs/loader:822:12)
+    at Module.require (node:internal/modules/cjs/loader:999:19)
+    at require (node:internal/modules/cjs/helpers:102:18)
+    at Object.<anonymous> (/Users/gagetylee/callio-api/node_modules/swagger-jsdoc/index.js:1:18)
+2022-07-11 20:06:26 error: [PUT] /api/v1/user/35 >> StatusCode:: 500, Message:: jwt malformed
+2022-07-11 20:06:54 error: [PUT] /api/v1/user/35 >> StatusCode:: 401, Message:: Authentication token missing
+2022-07-11 20:07:06 error: [PUT] /api/v1/user/35 >> StatusCode:: 500, Message:: You cannot call 'EntityManager.findOne()' with empty 'where' parameter
+2022-07-11 20:08:55 error: [PUT] /api/v1/user/35 >> StatusCode:: 500, Message:: select "u0".* from "user" as "u0" where "u0"."id" = NaN limit 1 - column "nan" does not exist
+2022-07-11 20:09:29 error: [PUT] /api/v1/user/1 >> StatusCode:: 500, Message:: select "u0".* from "user" as "u0" where "u0"."id" = NaN limit 1 - column "nan" does not exist
+2022-07-11 20:09:49 error: [PUT] /api/v1/user/1 >> StatusCode:: 500, Message:: select "u0".* from "user" as "u0" where "u0"."id" = NaN limit 1 - column "nan" does not exist
+2022-07-11 20:10:19 error: [PUT] /api/v1/user/1 >> StatusCode:: 500, Message:: select "u0".* from "user" as "u0" where "u0"."id" = NaN limit 1 - column "nan" does not exist
+2022-07-11 20:11:23 error: [PUT] /api/v1/user/1 >> StatusCode:: 500, Message:: select "u0".* from "user" as "u0" where "u0"."id" = NaN limit 1 - column "nan" does not exist
+2022-07-11 20:11:44 error: [PUT] /api/v1/user/1 >> StatusCode:: 500, Message:: select "u0".* from "user" as "u0" where "u0"."id" = NaN limit 1 - column "nan" does not exist
+2022-07-11 20:13:00 error: [PUT] /api/v1/user/1 >> StatusCode:: 500, Message:: select "u0".* from "user" as "u0" where "u0"."id" = NaN limit 1 - column "nan" does not exist
+2022-07-11 20:13:29 error: [PUT] /api/v1/user/1 >> StatusCode:: 500, Message:: select "u0".* from "user" as "u0" where "u0"."id" = NaN limit 1 - column "nan" does not exist
+2022-07-11 20:18:36 error: [PUT] /api/v1/user/1 >> StatusCode:: 500, Message:: invalid signature
+2022-07-11 20:18:52 error: [PUT] /api/v1/user/2 >> StatusCode:: 404, Message:: User not found
+2022-07-11 20:19:01 error: [PUT] /api/v1/user/1 >> StatusCode:: 400, Message:: property firstNamee should not exist
+2022-07-11 20:21:58 error: [PUT] /api/v1/user/1 >> StatusCode:: 500, Message:: invalid token
+2022-07-11 20:23:24 error: [PUT] /api/v1/user/1 >> StatusCode:: 500, Message:: invalid token
+2022-07-11 20:23:54 error: [PUT] /api/v1/user/1 >> StatusCode:: 400, Message:: property firstNamee should not exist
+2022-07-11 20:24:02 error: [PUT] /api/v1/user/1 >> StatusCode:: 401, Message:: Authentication token missing
+2022-07-11 20:24:38 error: [PUT] /api/v1/user/2 >> StatusCode:: 400, Message:: property firstNamee should not exist
+2022-07-11 20:24:48 error: [PUT] /api/v1/user/2 >> StatusCode:: 404, Message:: User not found
+2022-07-11 20:32:58 error: [PUT] /api/v1/user/1 >> StatusCode:: 500, Message:: Cannot read properties of undefined (reading 'split')
+2022-07-11 20:33:05 error: [PUT] /api/v1/user/1 >> StatusCode:: 500, Message:: Cannot read properties of undefined (reading 'split')
+2022-07-11 20:33:48 error: [PUT] /api/v1/user/1 >> StatusCode:: 401, Message:: Authentication token missing
+2022-07-11 20:49:02 error: [PUT] /api/v1/user/1 >> StatusCode:: 401, Message:: Authentication token missing
