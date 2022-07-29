@@ -1,0 +1,4 @@
+server/dist
+server/logs
+server/node_modules
+server/.env.development.local
