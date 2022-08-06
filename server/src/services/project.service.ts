@@ -10,14 +10,15 @@ import { ProjectCreateDto } from "../dtos/projectCreate.dto";
 import { Project } from "../entities/project.entity";
 import { ProjectRepository } from "../repositories/project.repository";
 import { wrap } from "module";
+import { IProject } from "@/interfaces/project.interface";
 
 @Service()
 export class ProjectService {
   private projectRepository: ProjectRepository = DI.projectRepository
   private userRepository: EntityRepository<User> = DI.userRepository
 
-  public async findOne(id: number): Promise<Project> {
-    const project: Project = await this.projectRepository.findOne({ id })
+  public async findOne(id: number): Promise<IProject> {
+    const project: IProject = await this.projectRepository.findOneById(id)
 
     if (!project) {
       throw new HttpException(404, 'Project not found')

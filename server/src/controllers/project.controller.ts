@@ -5,6 +5,7 @@ import { User } from "../entities/user.entity"
 import { ProjectCreateDto } from "../dtos/projectCreate.dto"
 import { Project } from "../entities/project.entity"
 import { ProjectService } from "../services/project.service"
+import { IProject } from "@/interfaces/project.interface"
 
 @Service()
 export class ProjectController {
@@ -65,7 +66,7 @@ export class ProjectController {
 
   public async findOne(req: Request, res: Response, next: NextFunction) {
     try {
-      const project: Project = await this.projectService.findOne(parseInt(req.params.id))
+      const project: IProject = await this.projectService.findOne(parseInt(req.params.id))
 
       res.status(200).json({
         success: true,

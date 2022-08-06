@@ -12,21 +12,21 @@ import { DataStoredInToken, UserRequest } from '@/util/auth.interface';
 import { UserSearchDto } from '@/dtos/userSearch.dto';
 import { ProjectService } from '@/services/project.service';
 import { Project } from '@/entities/project.entity';
+import { AuthService } from '@/services/auth.service';
 
 @Service()
 export class UserController {
-  constructor(readonly userService: UserService) {
+  constructor(readonly userService: UserService, readonly authService: AuthService) {
     this.getAll = this.getAll.bind(this);
     this.findOne = this.findOne.bind(this);
     this.register = this.register.bind(this);
-    this.login = this.login.bind(this);
     this.update = this.update.bind(this);
     this.getInvites = this.getInvites.bind(this);
   }
   
   /**
    * ===========================================================================================
-   * PRIVATE controllers
+   * PRIVATE routes
    * ===========================================================================================
    */
 
@@ -44,7 +44,7 @@ export class UserController {
       return res.status(200).json({
         success: true,
         message: "User successfully updated",
-        data: { user }
+        data: { updatedUser }
       })
     } catch (error) {
       next(error)
@@ -53,7 +53,9 @@ export class UserController {
 
   public async getInvites(req: UserRequest, res: Response, next: NextFunction) {
     try {
+      console.log('WE HERE')
       const user: User = req.user
+      console.log(user)
       const projectInvites: Project[] = await this.userService.getInvites(user.id)
 
       return res.status(200).json({
@@ -123,7 +125,7 @@ export class UserController {
       const userData: UserCreateDto = req.body
 
       const user: User = await this.userService.create(userData)
-      const token = this.generateToken(user.id)
+      const token = this.authService.generateToken(user.id)
 
       return res.status(200).json({
         success: true,
@@ -135,28 +137,21 @@ export class UserController {
     }
   }
 
-  public async login(req: Request, res: Response, next: NextFunction) {
-    try {
-      const userData: UserLoginDto = req.body
+  // public async login(req: Request, res: Response, next: NextFunction) {
+  //   try {
+  //     const userData: UserLoginDto = req.body
 
-      const user: User = await this.userService.login(userData)
-      console.log(user.id)
-      const token = this.generateToken(user.id)
+  //     const user: User = await this.userService.login(userData)
+  //     console.log(user.id)
+  //     const token = this.authService.generateToken(user.id)
 
-      return res.status(200).json({
-        success: true,
-        message: "User logged in successfully",
-        data: { user, token }
-      })
-    } catch (error) {
-      next(error)
-    }
-  }
-
-  private generateToken(id: number) {
-    const dataStoredInToken: DataStoredInToken = { id }
-    const expiresIn: number = 60 * 60
-
-    return jsonwebtoken.sign(dataStoredInToken, JWT_SECRET, { expiresIn })
-  }
+  //     return res.status(200).json({
+  //       success: true,
+  //       message: "User logged in successfully",
+  //       data: { user, token }
+  //     })
+  //   } catch (error) {
+  //     next(error)
+  //   }
+  // }
 }

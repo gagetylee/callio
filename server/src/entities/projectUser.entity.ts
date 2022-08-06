@@ -9,10 +9,10 @@ export class ProjectUser extends BaseEntity {
   @PrimaryKey({ autoincrement: true })
     id!: number
 
-  @ManyToOne({ entity: () => User, primary: true, wrappedReference: true })
+  @ManyToOne(() => User, { primary: true, wrappedReference: true } )
     user!: IdentifiedReference<User>
 
-  @ManyToOne({ entity: () => Project, primary: true, wrappedReference: true })
+  @ManyToOne(() => Project, { primary: true, wrappedReference: true })
     project!: IdentifiedReference<Project>
 
   @Enum(() => ProjectUserStatus)

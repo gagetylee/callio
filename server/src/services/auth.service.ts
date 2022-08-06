@@ -20,7 +20,13 @@ export class AuthService {
     if (!user || !(await compare(loginData.password, user.password))) {
       throw new HttpException(401, 'Invalid credentials')
     }
-
     return user
+  }
+
+  public generateToken(id: number) {
+    const dataStoredInToken: DataStoredInToken = { id }
+    const expiresIn: number = 60 * 60 * 60
+
+    return jsonwebtoken.sign(dataStoredInToken, JWT_SECRET, { expiresIn })
   }
 }

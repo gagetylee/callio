@@ -19,7 +19,7 @@ export class AuthController {
       const loginData: LoginDto = req.body
 
       const user: User = await this.authService.login(loginData)
-      const token = this.generateToken(user.id)
+      const token = this.authService.generateToken(user.id)
 
       return res.status(200).json({
         success: true,
@@ -29,12 +29,5 @@ export class AuthController {
     } catch (error) {
       next(error)
     }
-  }
-
-  private generateToken(id: number) {
-    const dataStoredInToken: DataStoredInToken = { id }
-    const expiresIn: number = 60 * 60 * 60
-
-    return jsonwebtoken.sign(dataStoredInToken, JWT_SECRET, { expiresIn })
   }
 }
