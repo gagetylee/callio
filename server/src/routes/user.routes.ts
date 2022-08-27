@@ -21,6 +21,7 @@ export class UserRoutes {
     this.router.get('/:username', this.userController.findOne);
 
     this.router.post('/', validate(UserCreateDto, 'body'), this.userController.register);
+    this.router.post('/:username/invites', authorize, this.userController.acceptInvite)
 
     this.router.put('/:id', authorize, validate(UserUpdateDto, 'body'), this.userController.update);
   }

@@ -12,7 +12,7 @@ export class UserRepository extends EntityRepository<User> {
   //   return null
   // }
 
-  public async findInvites(userId: number): Promise<Project[]> {
+  public async findInvites(userId: number, projectId?: number): Promise<Project[]> {
     const conn = this.em.getConnection()
     const knex = conn.getKnex()
 
@@ -20,9 +20,15 @@ export class UserRepository extends EntityRepository<User> {
       .select('p.id', 'p.name')
       .from('project as p')
       .join('project_user as pu', { 'p.id': 'pu.project_id' })
-      .where('pu.status', ProjectUserStatus.INVITED)
-      .andWhere('pu.user_id', userId)
-    
+      .where('pu.user_id', userId)
+      .andWhere('pu.status', 'invited')
+
+      if (projectId != null) {
+        query.where((qb) => {
+          qb.andWhere('pu.project_id', projectId)
+        })
+      }
+      
     const res = await query
 
     const projectArray = res.map(raw => {
@@ -31,7 +37,15 @@ export class UserRepository extends EntityRepository<User> {
         name: raw.name
       }
     })
-
     return projectArray
+  }
+
+  public async findOneInvite(userId: number, projectId: number) {
+    const conn = this.em.getConnection()
+    const knex = conn.getKnex()
+
+    const query = knex.queryBuilder()
+      .select()
+
   }
 }

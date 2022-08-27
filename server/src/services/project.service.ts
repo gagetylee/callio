@@ -69,8 +69,7 @@ export class ProjectService {
       throw new HttpException(404, 'Project not found')
     }
 
-    const projectUsers: Collection<ProjectUser> = await project.projectUsers.init()
-    // console.log(projectProfiles)
+    const projectUsers: Collection<ProjectUser> = project.projectUsers
 
     // Confirm admin
     const isAdmin = await projectUsers.matching({ where: { user, isAdmin: true } })

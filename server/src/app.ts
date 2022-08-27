@@ -11,6 +11,7 @@ import config, { DI } from './mikro-orm.config'
 import {User} from "@/entities/user.entity";
 import { PostgreSqlDriver } from '@mikro-orm/postgresql';
 import { Project } from './entities/project.entity';
+import { ProjectUser } from './entities/projectUser.entity';
 
 
 (async function main() {
@@ -21,6 +22,7 @@ import { Project } from './entities/project.entity';
   DI.em = DI.orm.em.fork()
   DI.userRepository = DI.orm.em.fork().getRepository(User);
   DI.projectRepository = DI.orm.em.fork().getRepository(Project)
+  DI.projectUserRepository = DI.orm.em.fork().getRepository(ProjectUser)
 
   app.use((_1, _2, next) => RequestContext.create(DI.orm.em, next));
 

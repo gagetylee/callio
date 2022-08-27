@@ -13,6 +13,8 @@ import { UserSearchDto } from '@/dtos/userSearch.dto';
 import { ProjectService } from '@/services/project.service';
 import { Project } from '@/entities/project.entity';
 import { AuthService } from '@/services/auth.service';
+import { HttpException } from '@/exceptions/HttpException';
+import { ProjectUser } from '@/entities/projectUser.entity';
 
 @Service()
 export class UserController {
@@ -22,6 +24,7 @@ export class UserController {
     this.register = this.register.bind(this);
     this.update = this.update.bind(this);
     this.getInvites = this.getInvites.bind(this);
+    this.acceptInvite = this.acceptInvite.bind(this);
   }
   
   /**
@@ -53,9 +56,10 @@ export class UserController {
 
   public async getInvites(req: UserRequest, res: Response, next: NextFunction) {
     try {
-      console.log('WE HERE')
       const user: User = req.user
-      console.log(user)
+      if (user.username !== req.params.username) {
+        throw new HttpException(403, 'Access denied')
+      }
       const projectInvites: Project[] = await this.userService.getInvites(user.id)
 
       return res.status(200).json({
@@ -64,6 +68,26 @@ export class UserController {
         data: projectInvites
       })
     } catch (error) {
+      next(error)
+    }
+  }
+
+  public async acceptInvite(req: UserRequest, res: Response, next: NextFunction) {
+    try {
+      const user = req.user
+      if (user.username !== req.params.username) {
+        throw new HttpException(403, 'Error')
+      }
+      const projectId: number = parseInt(req.query.project.toString())
+
+      const projectUser: ProjectUser = await this.userService.acceptInvite(user.id, projectId)
+
+      return res.status(200).json({
+        success: true,
+        message: 'Successfully joined project',
+        data: projectUser
+      })
+    } catch(error) {
       next(error)
     }
   }

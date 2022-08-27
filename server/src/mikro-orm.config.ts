@@ -39,7 +39,7 @@ export const DI = {} as {
   em: EntityManager;
   userRepository: UserRepository;
   projectRepository: ProjectRepository;
-  // profileProjectRepository: EntityRepository<ProfileProject>
+  projectUserRepository: EntityRepository<ProjectUser>;
 };
 
 export default config

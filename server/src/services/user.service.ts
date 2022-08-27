@@ -10,10 +10,14 @@ import { UserLoginDto } from '../dtos/userLogin.dto';
 import { UserSearchDto } from '@/dtos/userSearch.dto';
 import { UserRepository } from '@/repositories/user.repository';
 import { Project } from '@/entities/project.entity';
+import { ProjectRepository } from '@/repositories/project.repository';
+import { ProjectUser, ProjectUserStatus } from '@/entities/projectUser.entity';
 
 @Service()
 export class UserService {
   private userRepository: UserRepository = DI.userRepository
+  private projectRepository: ProjectRepository = DI.projectRepository
+  private projectUserRepository: EntityRepository<ProjectUser> = DI.projectUserRepository
 
   public async getAll(): Promise<User[]> {
     const users: User[] = await this.userRepository.findAll();
@@ -49,6 +53,22 @@ export class UserService {
     }
 
     return invites
+  }
+
+  public async acceptInvite(userId: number, projectId: number) {
+    const projectUser: ProjectUser = await this.projectUserRepository.findOne({ user: userId, project: projectId })
+
+    if (!projectUser) {
+      throw new HttpException(404, 'Invite not found')
+    }
+    if (projectUser.status != ProjectUserStatus.INVITED) {
+      throw new HttpException(400, 'User is already part of project')
+    }
+
+    const updatedProjectUser = wrap(projectUser).assign({ status: ProjectUserStatus.ACTIVE })
+    this.projectUserRepository.flush()
+
+    return updatedProjectUser
   }
 
 

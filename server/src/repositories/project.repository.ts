@@ -1,9 +1,10 @@
 import { Collection } from "@mikro-orm/core";
 import { EntityRepository } from "@mikro-orm/postgresql";
 import { profile } from "console";
-import { ProjectUser } from "../entities/projectUser.entity";
+import { ProjectUser, ProjectUserStatus } from "../entities/projectUser.entity";
 import { Project } from "../entities/project.entity";
 import { IProject } from "../interfaces/project.interface";
+import { User } from "@/entities/user.entity";
 
 export class ProjectRepository extends EntityRepository<Project> {
   private conn = this.em.getConnection()
@@ -38,4 +39,30 @@ export class ProjectRepository extends EntityRepository<Project> {
       }
     })[0]
   }
+
+  public async findMembers(id: number, status?: ProjectUserStatus) {
+    const projectQuery = this.knex.queryBuilder()
+      .select('u.id', 'u.username', 'pu.status')
+      .from('user as u')
+      .innerJoin('projectUser as pu', { 'u.id': 'pu.user' })
+      .innerJoin('project as p', { 'p.id': 'pu.project' })
+      .where('p.id', id)
+
+      // Add filters
+      if (status !== null) {
+        projectQuery.where((qb) => {
+          qb.andWhere('status', status)
+        })
+      }
+
+      const res = await projectQuery
+
+      return res.map(raw => {
+        return <User> {
+          id: raw.id,
+          username: raw.username
+        }
+      })
+  }
+
 }
